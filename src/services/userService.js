@@ -4,7 +4,6 @@ export const getUserByEmail = (email) => {
     )
   }
 
-
   export const createUser = (user) => {
     return fetch("http://localhost:8088/users", {
       method: "POST",

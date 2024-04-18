@@ -5,26 +5,23 @@ import "./Login.css"
 
 
 
+
 export const Register = (props) => {
-  const [user, setUser] = useState({
+  const [customer, setCustomer] = useState({
     email: "",
-    userName: "",
-    cohort: 0,
+    fullName: "",
+    isStaff: false,
   })
   let navigate = useNavigate()
 
   const registerNewUser = () => {
-    const newUser = {
-      ...user,
-      cohort: parseInt(user.cohort),
-    }
-
-    createUser(newUser).then((createdUser) => {
+    createUser(customer).then((createdUser) => {
       if (createdUser.hasOwnProperty("id")) {
         localStorage.setItem(
-          "learning_user",
+          "sendit_user",
           JSON.stringify({
             id: createdUser.id,
+            name: createdUser.name,
             staff: createdUser.isStaff,
           })
         )
@@ -36,7 +33,7 @@ export const Register = (props) => {
 
   const handleRegister = (e) => {
     e.preventDefault()
-    getUserByEmail(user.email).then((response) => {
+    getUserByEmail(customer.email).then((response) => {
       if (response.length > 0) {
         // Duplicate email. No good.
         window.alert("Account with that email address already exists")
@@ -47,57 +44,63 @@ export const Register = (props) => {
     })
   }
 
-  const updateUser = (evt) => {
-    const copy = { ...user }
+  const updateCustomer = (evt) => {
+    const copy = { ...customer }
     copy[evt.target.id] = evt.target.value
-    setUser(copy)
+    setCustomer(copy)
   }
 
   return (
-    <main className="auth-container">
-      <form className="auth-form" onSubmit={handleRegister}>
-        <h1 className="header">Learning Moments</h1>
+    <main style={{ textAlign: "center" }}>
+      <form className="form-login" onSubmit={handleRegister}>
+        <h1>Honey Rae Repairs</h1>
         <h2>Please Register</h2>
-        <fieldset className="auth-fieldset">
-          <div>
+        <fieldset>
+          <div className="form-group">
             <input
-              onChange={updateUser}
+              onChange={updateCustomer}
               type="text"
-              id="userName"
-              className="auth-form-input"
+              id="fullName"
+              className="form-control"
               placeholder="Enter your name"
               required
               autoFocus
             />
           </div>
         </fieldset>
-        <fieldset className="auth-fieldset">
-          <div>
+        <fieldset>
+          <div className="form-group">
             <input
-              onChange={updateUser}
+              onChange={updateCustomer}
               type="email"
               id="email"
-              className="auth-form-input"
+              className="form-control"
               placeholder="Email address"
               required
             />
           </div>
         </fieldset>
-        <fieldset className="auth-fieldset">
-          <div>
-            <input
-              onChange={updateUser}
-              type="number"
-              id="cohort"
-              className="auth-form-input"
-              placeholder="Cohort #"
-              required
-            />
+        <fieldset>
+          <div className="form-group">
+            <label>
+              <input
+                onChange={(evt) => {
+                  const copy = { ...customer }
+                  copy.isStaff = evt.target.checked
+                  setCustomer(copy)
+                }}
+                type="checkbox"
+                id="isStaff"
+              />
+              I am an employee{" "}
+            </label>
           </div>
         </fieldset>
-        <fieldset className="auth-fieldset">
-          <div>
-            <button type="submit">Register</button>
+        <fieldset>
+          <div className="form-group">
+            <button className="login-btn btn-info" type="submit">
+              Register
+            </button>
           </div>
         </fieldset>
       </form>
