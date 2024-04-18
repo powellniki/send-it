@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { MemberViews } from "./MemberViews.jsx"
+import { EmployeeViews } from "./EmployeeViews.jsx"
 
 
 
@@ -7,12 +9,11 @@ export const ApplicationViews = () => {
     
 
     useEffect(() => {
-        const localUser = localStorage.getItem("learning_user")
+        const localUser = localStorage.getItem("sendit_user")
         const localUserObject = JSON.parse(localUser)
         setCurrentUser(localUserObject)
     }, [])
 
-    return (
-        <>This is my site</>
-    )
+
+    return currentUser.isStaff ? <EmployeeViews currentUser={currentUser} /> : <MemberViews currentUser={currentUser}/>
 }
