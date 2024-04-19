@@ -5,10 +5,7 @@
     border-radius: 10px;
     padding: 2px;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-header {
-    font-size: 25px;
+    margin: 5px;
 }
 
 .route-item-main {

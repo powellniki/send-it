@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
-import { getRouteGrades, getRouteSetters, getRouteTypes } from "../../services/routeService.js"
+import { getRouteGrades, getRouteSetters, getRouteStyles, getRouteTypes } from "../../services/routeService.js"
+import './filterBar.css'
 
 
 
-export const FilterBar = ({allRoutes, setSelectedSetter, setSelectedGrade, setSelectedType, setDisplayedRoutes}) => {
+export const FilterBar = ({allRoutes, setSelectedSetter, setSelectedGrade, setSelectedType, setSelectedStyle, setDisplayedRoutes}) => {
     const [types, setTypes] = useState([])
     const [grades, setGrades] = useState([])
+    const [styles, setStyles] = useState([])
     const [setters, setSetters] = useState([])
 
 
@@ -22,6 +24,13 @@ export const FilterBar = ({allRoutes, setSelectedSetter, setSelectedGrade, setSe
             setGrades(grades)
         }) 
     },[allRoutes])
+
+    // get all route styles
+    useEffect(() => {
+        getRouteStyles().then(styles => {
+            setStyles(styles)
+            }) 
+    }, [])
 
     // get all route setters
     useEffect(() => {
@@ -44,6 +53,12 @@ export const FilterBar = ({allRoutes, setSelectedSetter, setSelectedGrade, setSe
                 <option value="0" id="grade">select grade...</option>
                     {grades.map(grade => {
                         return <option value={grade.id} key={grade.id}>{grade.name}</option>
+                    })}
+            </select>
+            <select onChange={(event) => {setSelectedStyle(event.target.value)}} id="style-select" className="filter-item">
+                <option value="0" id="style">select a route style</option>
+                    {styles.map(style => {
+                        return <option value={style.id} key={style.id}>{style.name}</option>
                     })}
             </select>
             <select onChange={(event) => {setSelectedSetter(event.target.value)}} id="setter-select" className="filter-item">

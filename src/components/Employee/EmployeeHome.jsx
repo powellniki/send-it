@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getAllRoutes } from "../../services/routeService.js"
 import { RouteObject } from "../route/RouteObject.jsx"
 import { FilterBar } from "./FilterBar.jsx"
+import './EmployeeHome.css'
 
 
 export const EmployeeHome = () => {
@@ -9,10 +10,11 @@ export const EmployeeHome = () => {
     const [allRoutes, setAllRoutes] = useState([])
     const [selectedType, setSelectedType] = useState('')
     const [selectedGrade, setSelectedGrade] = useState('')
+    const [selectedStyle, setSelectedStyle] = useState('')
     const [selectedSetter, setSelectedSetter] = useState('')
-    const [filteredRouteTypes, setFilteredRouteTypes] = useState([])
-    const [filteredRouteGrades, setFilteredRouteGrades] = useState([])
-    const [filteredRouteSetters, setFilteredRouteSetters] = useState([])
+    // const [filteredRouteTypes, setFilteredRouteTypes] = useState([])
+    // const [filteredRouteGrades, setFilteredRouteGrades] = useState([])
+    // const [filteredRouteSetters, setFilteredRouteSetters] = useState([])
     const [displayedRoutes, setDisplayedRoutes] = useState([])
 
     useEffect(() => {
@@ -40,6 +42,15 @@ export const EmployeeHome = () => {
     }, [allRoutes, selectedGrade])
 
     useEffect(() => {
+        if(parseInt(selectedStyle) > 0) {
+            const filteredStyles = allRoutes.filter(route => route.styleId === parseInt(selectedStyle))
+            setDisplayedRoutes(filteredStyles)
+        } else {
+            setDisplayedRoutes(allRoutes)
+        }
+    }, [allRoutes, selectedStyle])
+
+    useEffect(() => {
         if (parseInt(selectedSetter) > 0) {
             const filteredSetters = allRoutes.filter(route => route.userId === parseInt(selectedSetter))
             setDisplayedRoutes(filteredSetters)
@@ -48,15 +59,18 @@ export const EmployeeHome = () => {
         }
     }, [allRoutes, selectedSetter])
 
+    
+    //filters CURRENTLY work independently... need to figure out how to get them to work dynamically together when multiple are selected
 
     return (
         <div className="employee-home">
-            <h2>Gym Routes</h2>
+            <h2 className="heading">Gym Routes</h2>
             <div className="employee-route-filter">
                 <FilterBar 
                     allRoutes={allRoutes} 
                     setSelectedType={setSelectedType}
-                    setSelectedGrade={setSelectedGrade} 
+                    setSelectedGrade={setSelectedGrade}
+                    setSelectedStyle={setSelectedStyle}
                     setSelectedSetter={setSelectedSetter} 
                 />
             </div>
