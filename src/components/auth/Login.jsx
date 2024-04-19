@@ -21,7 +21,8 @@ export const Login = () => {
           JSON.stringify({
             id: user.id,
             name: user.name,
-            isStaff: user.isStaff
+            isStaff: user.isStaff,
+            email: user.email
           })
         )
 

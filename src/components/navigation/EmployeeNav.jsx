@@ -7,13 +7,13 @@ export const EmployeeNav = () => {
     return (
         <ul className="navbar">
             <li className="navbar-info">
-                <Link to="/">Home</Link>
-            </li>
-            <li className="navbar-info">
-                <Link to="/profile">My Profile</Link>
+                <Link to="/">All Routes</Link>
             </li>
             <li className="navbar-info">
                 <Link to="/myroutes">My Routes</Link>
+            </li>
+            <li className="navbar-info">
+                <Link to="/profile">My Profile</Link>
             </li>
             <li className="nav-new-route">
                 <Link to="/newroute">New Route</Link>
