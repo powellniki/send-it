@@ -30,7 +30,7 @@ export const EmployeeEditProfile = ({currentUser}) => {
 
         const editedEmployee = {
             id: employee.id,
-            name: employee.name,
+            fullName: employee.name,
             email: employee.email,
             isStaff: "true"
         }

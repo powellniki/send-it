@@ -26,8 +26,7 @@ export const EmployeeViews = ({currentUser}) => {
 
                 <Route path="myroutes">
                     <Route index element={<MyRoutes currentUser={currentUser}/>} />
-                    <Route path=":routeId" element={<RouteDetails currentUser={currentUser} />} />
-                    <Route path=":edit" element={<EditRoute currentUser={currentUser}/>} />
+                    <Route path="edit/:routeId" element={<EditRoute currentUser={currentUser}/>} />
                 </Route>
 
 

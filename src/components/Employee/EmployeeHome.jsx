@@ -26,43 +26,26 @@ export const EmployeeHome = ({currentUser}) => {
 
 
     useEffect(() => {
-        if (parseInt(selectedType) > 0) {
-            const filteredTypes = allRoutes.filter(route => route.typeId === parseInt(selectedType))
-            setDisplayedRoutes(filteredTypes)
-        } else {
-            setDisplayedRoutes(allRoutes)
-        }
-    }, [allRoutes, selectedType])
+        let filteredRoutes = allRoutes
 
-    useEffect(() => {
-        if (parseInt(selectedGrade) > 0) {
-            const filteredGrades = allRoutes.filter(route => route.gradeId === parseInt(selectedGrade))
-            setDisplayedRoutes(filteredGrades)
-        } else {
-            setDisplayedRoutes(allRoutes)
-        }
-    }, [allRoutes, selectedGrade])
+            if (parseInt(selectedType) > 0) {
+                filteredRoutes = filteredRoutes.filter(route => route.typeId === parseInt(selectedType))
+            }
+            if (parseInt(selectedGrade) > 0) {
+                filteredRoutes = filteredRoutes.filter(route => route.gradeId === parseInt(selectedGrade))
+            }
+            if(parseInt(selectedStyle) > 0) {
+                filteredRoutes = filteredRoutes.filter(route => route.styleId === parseInt(selectedStyle))
+            }
+            if (parseInt(selectedSetter) > 0) {
+                filteredRoutes = filteredRoutes.filter(route => route.userId === parseInt(selectedSetter))
+            }
 
-    useEffect(() => {
-        if(parseInt(selectedStyle) > 0) {
-            const filteredStyles = allRoutes.filter(route => route.styleId === parseInt(selectedStyle))
-            setDisplayedRoutes(filteredStyles)
-        } else {
-            setDisplayedRoutes(allRoutes)
-        }
-    }, [allRoutes, selectedStyle])
+        setDisplayedRoutes(filteredRoutes)
 
-    useEffect(() => {
-        if (parseInt(selectedSetter) > 0) {
-            const filteredSetters = allRoutes.filter(route => route.userId === parseInt(selectedSetter))
-            setDisplayedRoutes(filteredSetters)
-        } else {
-            setDisplayedRoutes(allRoutes)
-        }
-    }, [allRoutes, selectedSetter])
+    }, [allRoutes, selectedType, selectedGrade, selectedStyle, selectedSetter])
 
-    
-    //filters CURRENTLY work independently... need to figure out how to get them to work dynamically together when multiple are selected
+
 
 
 
@@ -79,9 +62,9 @@ export const EmployeeHome = ({currentUser}) => {
                 />
             </div>
             <div className="routes">
-                {displayedRoutes.map(route => {
-                    return <RouteObject route={route} getAndSetAllRoutes={getAndSetAllRoutes} currentUser={currentUser} key={route.id} allRoutes={allRoutes}/>
-                })}
+                    {displayedRoutes.map(route => {
+                        return <RouteObject route={route} getAndSetAllRoutes={getAndSetAllRoutes} key={route.id} currentUser={currentUser} allRoutes={allRoutes}/>   
+                    })}
             </div>
         </div>
     )

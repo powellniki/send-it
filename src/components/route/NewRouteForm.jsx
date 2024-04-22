@@ -60,9 +60,9 @@ export const NewRouteForm = ({currentUser}) => {
                 description: routeDescription,
                 img: routeImage,
                 dateSet: setDate(),
-                typeId: routeType,
-                gradeId: routeGrade,
-                styleId: routeStyle,
+                typeId: parseInt(routeType),
+                gradeId: parseInt(routeGrade),
+                styleId: parseInt(routeStyle),
                 userId: currentUser.id,
                 isActive: true
             }
@@ -81,7 +81,7 @@ export const NewRouteForm = ({currentUser}) => {
             <h2>Lets Set a New Route!</h2>
 
             <fieldset>
-                <div className="route-image">
+                <div className="route-info">
                     <input type="text" name="image" placeholder="Route Image URL" onChange={(event) => {setRouteImage(event.target.value)}} required></input>
                 </div>
             </fieldset>
