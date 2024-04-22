@@ -5,23 +5,25 @@ import { FilterBar } from "./FilterBar.jsx"
 import './EmployeeHome.css'
 
 
-export const EmployeeHome = () => {
+export const EmployeeHome = ({currentUser}) => {
 
     const [allRoutes, setAllRoutes] = useState([])
     const [selectedType, setSelectedType] = useState('')
     const [selectedGrade, setSelectedGrade] = useState('')
     const [selectedStyle, setSelectedStyle] = useState('')
     const [selectedSetter, setSelectedSetter] = useState('')
-    // const [filteredRouteTypes, setFilteredRouteTypes] = useState([])
-    // const [filteredRouteGrades, setFilteredRouteGrades] = useState([])
-    // const [filteredRouteSetters, setFilteredRouteSetters] = useState([])
     const [displayedRoutes, setDisplayedRoutes] = useState([])
 
-    useEffect(() => {
+    const getAndSetAllRoutes = () => {
         getAllRoutes().then(routesArray => {
             setAllRoutes(routesArray)
         }) 
+    }
+
+    useEffect(() => {
+        getAndSetAllRoutes()
     }, [])
+
 
     useEffect(() => {
         if (parseInt(selectedType) > 0) {
@@ -62,6 +64,8 @@ export const EmployeeHome = () => {
     
     //filters CURRENTLY work independently... need to figure out how to get them to work dynamically together when multiple are selected
 
+
+
     return (
         <div className="employee-home">
             <h2 className="heading">Gym Routes</h2>
@@ -76,7 +80,7 @@ export const EmployeeHome = () => {
             </div>
             <div className="routes">
                 {displayedRoutes.map(route => {
-                    return <RouteObject route={route} key={route.id} />
+                    return <RouteObject route={route} getAndSetAllRoutes={getAndSetAllRoutes} currentUser={currentUser} key={route.id} allRoutes={allRoutes}/>
                 })}
             </div>
         </div>

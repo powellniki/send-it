@@ -17,7 +17,7 @@ export const MyRoutes = ({currentUser}) => {
         <div className="routes">
         <h2 className="heading">My Routes</h2>
             {routesBySetterId.map(route => {
-                return <RouteObject route={route} key={route.id} />
+                return <RouteObject route={route} currentUser={currentUser} key={route.id} />
             })}
         </div>
     )

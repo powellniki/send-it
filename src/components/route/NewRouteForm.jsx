@@ -1,8 +1,20 @@
 import { useEffect, useState } from "react"
-import { getRouteGrades, getRouteStyles, getRouteTypes } from "../../services/routeService.js"
+import { getRouteGrades, getRouteStyles, getRouteTypes, postRoute } from "../../services/routeService.js"
+import { useNavigate } from "react-router-dom"
 
 
-export const NewRouteForm = () => {
+
+const setDate = () => {
+    const today = new Date()
+    const day = today.getDate()
+    const month = today.getMonth()
+    const year = today.getFullYear()
+    return `${month}/${day}/${year}`
+}
+
+
+
+export const NewRouteForm = ({currentUser}) => {
     const [types, setTypes] = useState([])
     const [grades, setGrades] = useState([])
     const [styles, setStyles] = useState([])
@@ -12,6 +24,10 @@ export const NewRouteForm = () => {
     const [routeGrade, setRouteGrade] = useState(0)
     const [routeStyle, setRouteStyle] = useState(0)
     const [routeDescription, setRouteDescription] = useState("")
+
+    const navigate = useNavigate()
+
+
 
 
         // get all route types
@@ -34,6 +50,30 @@ export const NewRouteForm = () => {
                setStyles(styles)
            }) 
        }, [])
+
+
+       const handlePost = (event) => {
+            event.preventDefault()
+
+            const newRoute = {
+                name: routeName,
+                description: routeDescription,
+                img: routeImage,
+                dateSet: setDate(),
+                typeId: routeType,
+                gradeId: routeGrade,
+                styleId: routeStyle,
+                userId: currentUser.id,
+                isActive: true
+            }
+
+            postRoute(newRoute).then(() => {
+                navigate('/')
+            })
+       }
+
+
+
 
 
     return (
@@ -84,10 +124,16 @@ export const NewRouteForm = () => {
                     </select>
                 </div>
             </fieldset>
+            <fieldset>
+                <div className="route-info">
+                    <textarea type="text" name="description" placeholder="Write a brief route description..." onChange={(event) => {setRouteDescription(event.target.value)}} required ></textarea>
+
+                </div>
+            </fieldset>
             
             <fieldset>
                 <div className="route-info">
-                    <button>Set Route!</button>
+                    <button onClick={handlePost}>Set Route!</button>
                 </div>
             </fieldset>
         </form>

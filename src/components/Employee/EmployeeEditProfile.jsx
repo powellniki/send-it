@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
-import './profile.css'
 import { getUserById, updateUser } from '../../services/userService.js'
 import { useNavigate } from 'react-router-dom'
+import './profile.css'
+
+
 
 export const EmployeeEditProfile = ({currentUser}) => {
     const [employee, setEmployee] = useState({})
 
     const navigate = useNavigate()
-
 
 
     useEffect(() => {
@@ -23,8 +24,6 @@ export const EmployeeEditProfile = ({currentUser}) => {
         setEmployee(employeeCopy)
     }
 
-
-    
     const handleProfileSave = (event) => {
         event.preventDefault()
         console.log('profile saved')

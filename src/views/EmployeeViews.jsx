@@ -5,6 +5,8 @@ import { MyRoutes } from "../components/Employee/MyRoutes.jsx"
 import { EmployeeProfile } from "../components/Employee/EmployeeProfile.jsx"
 import { EmployeeEditProfile } from "../components/Employee/EmployeeEditProfile.jsx"
 import { NewRouteForm } from "../components/route/NewRouteForm.jsx"
+import { EditRoute } from "../components/route/EditRoute.jsx"
+import { RouteDetails } from "../components/route/RouteDetails.jsx"
 
 
 
@@ -22,7 +24,11 @@ export const EmployeeViews = ({currentUser}) => {
                 <Route index element={<EmployeeHome currentUser={currentUser}/>} />
 
 
-                <Route path="myroutes" element={<MyRoutes currentUser={currentUser}/>} />
+                <Route path="myroutes">
+                    <Route index element={<MyRoutes currentUser={currentUser}/>} />
+                    <Route path=":routeId" element={<RouteDetails currentUser={currentUser} />} />
+                    <Route path=":edit" element={<EditRoute currentUser={currentUser}/>} />
+                </Route>
 
 
                 <Route path="profile">
@@ -30,7 +36,7 @@ export const EmployeeViews = ({currentUser}) => {
                     <Route path=":edit" element={<EmployeeEditProfile currentUser={currentUser}/>} />
                 </Route>
 
-                <Route path="newroute" element={<NewRouteForm />} />
+                <Route path="newroute" element={<NewRouteForm currentUser={currentUser}ß/>} />
 
                 <Route path="routedetails" element={<>This will be the route information</>} />
 
