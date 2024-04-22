@@ -17,3 +17,15 @@
     padding: 5px;
     color: red;
 }
+
+.route-date {
+    margin-left: 15px;
+}
+
+.route-edit {
+    margin-top: 25px;
+}
+
+.btn-secondary {
+    margin: 3px;
+}

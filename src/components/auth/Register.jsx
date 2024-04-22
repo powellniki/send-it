@@ -9,7 +9,7 @@ import "./Login.css"
 export const Register = (props) => {
   const [customer, setCustomer] = useState({
     email: "",
-    fullName: "",
+    name: "",
     isStaff: false,
   })
   let navigate = useNavigate()
