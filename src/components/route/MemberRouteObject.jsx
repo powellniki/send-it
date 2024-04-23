@@ -27,6 +27,4 @@ export const MemberRouteObject = ({route}) => {
             </section>
         </Link>
     )
-
-
 }

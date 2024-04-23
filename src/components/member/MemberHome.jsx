@@ -31,7 +31,5 @@ export const MemberHome = ({currentUser}) => {
                 })}
             </div>
         </div>
-
     )
-
 }

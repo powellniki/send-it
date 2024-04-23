@@ -4,6 +4,7 @@ import { MemberNav } from "../components/navigation/MemberNav.jsx"
 import { Welcome } from "./Welcome.jsx"
 import { RouteDetails } from "../components/route/RouteDetails.jsx"
 import { RouteTickForm } from "../components/route/RouteTickForm.jsx"
+import { MemberProfile } from "../components/member/MemberProfile.jsx"
 
 
 export const MemberViews = ({currentUser}) => {
@@ -24,8 +25,11 @@ export const MemberViews = ({currentUser}) => {
 
             <Route path="route">
                 <Route path=":routeId" element={<RouteDetails currentUser={currentUser} />} />
-                <Route path="tick" element={<RouteTickForm currentUser={currentUser} />} />
+                <Route path=":routeId/comment" element={<>this will be a comment form</>} />
+                <Route path=":routeId/tick" element={<RouteTickForm currentUser={currentUser} />} />
             </Route>
+
+            <Route path="myprofile" element={<MemberProfile currentUser={currentUser}/>} />
             
 
 

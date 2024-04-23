@@ -28,6 +28,7 @@ export const RouteDetails = ({currentUser}) => {
     const navigate = useNavigate()
 
 
+
     const getAndSetRoute = () => {
         getRoutesByRouteId(routeId).then(routeData => {
             const routeObject = routeData[0]
@@ -100,6 +101,10 @@ export const RouteDetails = ({currentUser}) => {
 
     }
 
+    // const navigateToComment = () => {
+    //     navigate('/route/comment')
+    // }
+
 
     return (
         <section className="route-information">
@@ -118,7 +123,7 @@ export const RouteDetails = ({currentUser}) => {
             <div className="route-buttons">
                 <button onClick={checkIfTicked}>tick</button>
                 <button onClick={checkIfLiked}>like</button>
-                <button>comment</button>
+                {/* <button onClick={navigateToComment}>comment</button> */}
             </div>
 
             <div className="route-activity">
