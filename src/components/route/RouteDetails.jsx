@@ -4,6 +4,7 @@ import { getRoutesByRouteId } from "../../services/routeService.js"
 import { getLikesByRouteId, postLikes } from "../../services/likeServices.js"
 import { deleteTick, postTicks } from "../../services/tickServices.js"
 import { getTicksByRouteId } from "../../services/tickServices.js"
+import { getCommentsbyRouteId } from "../../services/commentService.js"
 
 
 const setDate = () => {
@@ -20,10 +21,12 @@ export const RouteDetails = ({currentUser}) => {
     const [route, setRoute] = useState({})
     const [likesExpandRoute, setLikesExpandRoute] = useState([])
     const [ticksExpandRoute, setTicksExpandRoute] = useState([])
+    const [commentsExpandRoute, setCommentsExpandRoute] = useState([])
     const [update, setUpdate] = useState(false)
 
     const {routeId} = useParams()
     const navigate = useNavigate()
+
 
     const getAndSetRoute = () => {
         getRoutesByRouteId(routeId).then(routeData => {
@@ -31,23 +34,26 @@ export const RouteDetails = ({currentUser}) => {
             setRoute(routeObject)
         }) 
     }
-
     const getLikesForRoute = () => {
         getLikesByRouteId(routeId).then(likesArray => {
             setLikesExpandRoute(likesArray)
         }) 
     }
-
     const getTicksforRoute = () => {
         getTicksByRouteId(routeId).then(tickArray => {
             setTicksExpandRoute(tickArray)
         })
     }
-
+    const getCommentsForRoute = () => {
+        getCommentsbyRouteId(routeId).then(commentsArray => {
+            setCommentsExpandRoute(commentsArray)
+        })
+    }
         useEffect(() => {
             getAndSetRoute()
             getLikesForRoute()
             getTicksforRoute()
+            getCommentsForRoute()
         },[currentUser, update])
 
 
@@ -58,7 +64,7 @@ export const RouteDetails = ({currentUser}) => {
                 handleLike()
 
             } else {
-                window.alert('you already like this route')
+                window.alert('you have already liked this route')
             }
     }
 
@@ -114,6 +120,7 @@ export const RouteDetails = ({currentUser}) => {
                 <button onClick={checkIfLiked}>like</button>
                 <button>comment</button>
             </div>
+
             <div className="route-activity">
                 <h4>Activity: </h4>
                 <div>
@@ -131,6 +138,16 @@ export const RouteDetails = ({currentUser}) => {
             </div>
             <div className="route-comments">
                 <h4>Comments:</h4>
+                <div>
+                    {commentsExpandRoute.map(comment => {
+                        return (
+                            <div key={comment.id} className="comment-item">
+                                <div>{comment.user?.fullName}</div>
+                                <div>{comment.comment}</div>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         </section>
     )
