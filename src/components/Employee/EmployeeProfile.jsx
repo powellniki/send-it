@@ -29,7 +29,7 @@ export const EmployeeProfile = ({currentUser}) => {
                 <img src={profilePicture}/>
             </div>
             <div className="profile-information">
-                <div className="user-name"><span className='user-info'>Name: </span>{employee.name}</div>
+                <div className="user-name"><span className='user-info'>Name: </span>{employee.fullName}</div>
                 <div className="user-email"><span className='user-info'>Email: </span>{employee.email}</div>
             </div>
             <div className="profile-edit">

@@ -64,7 +64,7 @@ export const FilterBar = ({allRoutes, setSelectedSetter, setSelectedGrade, setSe
             <select onChange={(event) => {setSelectedSetter(event.target.value)}} id="setter-select" className="filter-item">
                 <option value="0" id="setter">select setter...</option>
                     {setters.map(setter => {
-                        return <option value={setter.id} key={setter.id}>{setter.name}</option>
+                        return <option value={setter.id} key={setter.id}>{setter.fullName}</option>
                     })}
             </select>
         </div>
