@@ -15,11 +15,11 @@
 .route-item-secondary {
     margin-left: auto;
     padding: 5px;
-    color: red;
 }
 
 .route-date {
     margin-left: 15px;
+    color: red;
 }
 
 .route-edit {
@@ -28,4 +28,16 @@
 
 .btn-secondary {
     margin: 3px;
+}
+
+.route-link {
+    text-decoration: none;
+    color: darkgreen;
+}
+
+.like-tick-comment {
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 20px;
+    font-size: 12px;
 }
