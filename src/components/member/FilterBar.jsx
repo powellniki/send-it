@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-export const MemberFilterBar = () => {
+export const MemberFilterBar = ({currentUser}) => {
     const [likes, setLikes] = useState([])
     const [sent, setSent] = useState([])
     const [saved, setSaved] = useState([])
