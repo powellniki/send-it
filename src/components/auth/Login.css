@@ -1,6 +1,6 @@
 .auth-container {
     border: 1px solid gray;
-    margin: 3rem 15rem;
+    margin: 3rem 20rem;
     padding: 2rem;
     border-radius: 1rem;
   }
@@ -26,3 +26,4 @@
   .auth-fieldset {
     margin: 0.25rem 0rem;
   }
+

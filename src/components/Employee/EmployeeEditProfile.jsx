@@ -30,7 +30,7 @@ export const EmployeeEditProfile = ({currentUser}) => {
 
         const editedEmployee = {
             id: employee.id,
-            fullName: employee.name,
+            fullName: employee.fullName,
             email: employee.email,
             isStaff: "true"
         }
@@ -48,8 +48,8 @@ export const EmployeeEditProfile = ({currentUser}) => {
                     <label>Name: </label>
                     <input 
                         type="text"
-                        name="name"
-                        value={employee.name}
+                        name="fullName"
+                        value={employee.fullName}
                         onChange={handleInputChange}
                         className="form-control"
                         required
