@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getAllRoutes } from "../../services/routeService.js"
 import { FilterBar } from "../Employee/FilterBar.jsx"
 import { RouteObject } from "../route/RouteObject.jsx"
+import { MemberRouteObject } from "../route/MemberRouteObject.jsx"
 
 
 export const RouteSearch = ({currentUser}) => {
@@ -61,7 +62,7 @@ export const RouteSearch = ({currentUser}) => {
             </div>
             <div className="routes">
                     {displayedRoutes.map(route => {
-                        return <RouteObject route={route} getAndSetAllRoutes={getAndSetAllRoutes} currentUser={currentUser} key={route.id} allRoutes={allRoutes}/>   
+                        return <MemberRouteObject route={route} getAndSetAllRoutes={getAndSetAllRoutes} currentUser={currentUser} key={route.id} allRoutes={allRoutes}/>   
                     })}
             </div>
         </div>

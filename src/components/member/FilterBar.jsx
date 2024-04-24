@@ -1,13 +1,11 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
-
-
 
 export const MemberFilterBar = ({allRoutes, currentUser, setDisplayedRoutes}) => {
-    const [state, setState] = useState([])
 
-    const handleAllRoutes = () => {
-        setDisplayedRoutes(allRoutes)
+    const handleToDoRoutes = () => {
+        const toDoRoutes = allRoutes.filter(route => {
+            return route.todos.some(todo => todo.userId === currentUser.id)
+        })
+        setDisplayedRoutes(toDoRoutes)
     }
 
     const handleLikesFilter = () => {
@@ -26,13 +24,17 @@ export const MemberFilterBar = ({allRoutes, currentUser, setDisplayedRoutes}) =>
 
 
 
-return (<div>
-            <button onClick={handleAllRoutes}>All</button>
-            <button onClick={handleLikesFilter}>Liked</button>
-            <button onClick={handleSentFilter}>Sent</button>
-            {/* STRETCH GOAL */}
-            {/* <button>Saved</button> */}
-        </div>
+return (
+    <div>
+
+        <button onClick={handleSentFilter}>Ticks</button>
+        <button onClick={handleToDoRoutes}>To-Do's</button>
+        <button onClick={handleLikesFilter}>Liked</button>
+
+        {/* STRETCH GOAL */}
+        {/* <button>Saved</button> */}
+
+    </div>
 )
 
 }

@@ -1,7 +1,7 @@
 
 
 export const getAllRoutes = () => {
-    return fetch('http://localhost:8088/routes?_expand=type&_expand=grade&_expand=style&_expand=user&_embed=likes&_embed=ticks').then((res) => res.json())
+    return fetch('http://localhost:8088/routes?_expand=type&_expand=grade&_expand=style&_expand=user&_embed=likes&_embed=ticks&_embed=todos').then((res) => res.json())
 }
 
 export const getRouteTypes = () => {

@@ -7,7 +7,7 @@ export const MemberNav = () => {
     return (
         <ul className="navbar">
             <li className="navbar-info">
-                <Link to="home">Routes</Link>
+                <Link to="home">My Routes</Link>
             </li>
             <li className="navbar-info">
                 <Link to="myprofile">My Profile</Link>

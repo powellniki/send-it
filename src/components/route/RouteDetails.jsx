@@ -5,6 +5,7 @@ import { getLikesByRouteId, postLikes } from "../../services/likeServices.js"
 import { deleteTick, postTicks } from "../../services/tickServices.js"
 import { getTicksByRouteId } from "../../services/tickServices.js"
 import { getCommentsbyRouteId } from "../../services/commentService.js"
+import { getToDosByRouteId, postToDo } from "../../services/toDoServices.js"
 
 
 const setDate = () => {
@@ -21,6 +22,7 @@ export const RouteDetails = ({currentUser}) => {
     const [route, setRoute] = useState({})
     const [likesExpandRoute, setLikesExpandRoute] = useState([])
     const [ticksExpandRoute, setTicksExpandRoute] = useState([])
+    const [todosExpandRoute, setTodosExpandRoute] = useState([])
     const [commentsExpandRoute, setCommentsExpandRoute] = useState([])
     const [update, setUpdate] = useState(false)
 
@@ -28,37 +30,61 @@ export const RouteDetails = ({currentUser}) => {
     const navigate = useNavigate()
 
 
-
+    // GET ALL INFORMATION FOR ROUTES
     const getAndSetRoute = () => {
         getRoutesByRouteId(routeId).then(routeData => {
             const routeObject = routeData[0]
             setRoute(routeObject)
         }) 
     }
+    const getToDosForRoute = () => {
+        getToDosByRouteId(routeId).then(todoArray => {
+            setTodosExpandRoute(todoArray)
+        })
+    }
+    const getTicksForRoute = () => {
+        getTicksByRouteId(routeId).then(tickArray => {
+            setTicksExpandRoute(tickArray)
+        })
+    }
     const getLikesForRoute = () => {
         getLikesByRouteId(routeId).then(likesArray => {
             setLikesExpandRoute(likesArray)
         }) 
-    }
-    const getTicksforRoute = () => {
-        getTicksByRouteId(routeId).then(tickArray => {
-            setTicksExpandRoute(tickArray)
-        })
     }
     const getCommentsForRoute = () => {
         getCommentsbyRouteId(routeId).then(commentsArray => {
             setCommentsExpandRoute(commentsArray)
         })
     }
-        useEffect(() => {
-            getAndSetRoute()
-            getLikesForRoute()
-            getTicksforRoute()
-            getCommentsForRoute()
-        },[currentUser, update])
+    useEffect(() => {
+        getAndSetRoute()
+        getLikesForRoute()
+        getTicksForRoute()
+        getCommentsForRoute()
+        getToDosForRoute()
+    },[currentUser, update])
 
 
+    // CHECKS IF USER HAS MARKED A ROUTE AS TO DO AND IF NOT THEY CAN MARK IT
+    const checkIfToDo = () => {
+        const toDoByMember = todosExpandRoute.some(todo => todo.userId === currentUser.id)
+        if (!toDoByMember) {
+            handleToDo()
+        } else {
+            window.alert('you have already marked this route as to-do')
+        }
+    }
+    const handleToDo = () => {
+        const newToDo = {
+            userId: currentUser.id,
+            routeId: route.id           
+        }
+        postToDo(newToDo).then(getAndSetRoute()).then(getTicksForRoute())
+    }
 
+
+    // CHECKS IF USER HAS LIKED A ROUTE AND IF NOT THEY CAN LIKE IT
     const checkIfLiked = () => {
         const likedByMember = likesExpandRoute.some(like => like.userId === currentUser.id)
             if (!likedByMember) {
@@ -68,7 +94,6 @@ export const RouteDetails = ({currentUser}) => {
                 window.alert('you have already liked this route')
             }
     }
-
     const handleLike = () => {
         const newLike = {
             userId: currentUser.id,
@@ -77,7 +102,7 @@ export const RouteDetails = ({currentUser}) => {
         postLikes(newLike).then(getAndSetRoute()).then(getLikesForRoute())
     }
 
-
+    // CHECKS IF ROUTES ARE TICKED AND WILL ALLOW USER TO TICK THEM IF NOT
     const checkIfTicked = () => {
         const tickedByMember = ticksExpandRoute.some(tick => tick.userId === currentUser.id)
             if (!tickedByMember) {
@@ -86,7 +111,6 @@ export const RouteDetails = ({currentUser}) => {
                 window.alert('you have already ticked this route')
             }
     }
-
     const handleTick = () => {
         const newTick = {
             date: setDate(),
@@ -101,9 +125,6 @@ export const RouteDetails = ({currentUser}) => {
 
     }
 
-    // const navigateToComment = () => {
-    //     navigate('/route/comment')
-    // }
 
 
     return (
@@ -121,8 +142,9 @@ export const RouteDetails = ({currentUser}) => {
                 <div>Description: {route.description}</div>
             </div>
             <div className="route-buttons">
-                <button onClick={checkIfTicked}>tick</button>
-                <button onClick={checkIfLiked}>like</button>
+                <button onClick={checkIfToDo}>To-Do</button>
+                <button onClick={checkIfTicked}>Tick</button>
+                <button onClick={checkIfLiked}>Like</button>
                 {/* <button onClick={navigateToComment}>comment</button> */}
             </div>
 
