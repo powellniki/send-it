@@ -2,13 +2,11 @@ import { useEffect, useState } from "react"
 import { MemberFilterBar } from "./FilterBar.jsx"
 import { getAllRoutes } from "../../services/routeService.js"
 import { MemberRouteObject } from "../route/MemberRouteObject.jsx"
+import './memberHome.css'
 
 
 export const MemberHome = ({currentUser}) => {
     const [allRoutes, setAllRoutes] = useState([])
-    // const [showLikedOnly, setShowLikedOnly] = useState([])
-    // const [showSentOnly, setShowSentOnly] = useState([])
-    // const [showSavedOnly, setShowSavedOnly] = useState([])
     const [displayedRoutes, setDisplayedRoutes] = useState([])
 
 
@@ -23,15 +21,20 @@ export const MemberHome = ({currentUser}) => {
         getAndSetAllRoutes() 
     },[])
 
+
+    // sets up the page so that the users ticked routes show on initial render
     useEffect(() => {
-        setDisplayedRoutes(allRoutes) 
+        const sentRoutes = allRoutes.filter(route => {
+            return route.ticks.some(tick => tick.userId === currentUser.id)
+        })
+        setDisplayedRoutes(sentRoutes)
     },[allRoutes])
 
 
 
     return(
         <div className="member-home">
-            <h2>My Routes</h2>
+            <h2 className="heading">My Routes</h2>
             <div className="member-route-filter">
                 <MemberFilterBar 
                     allRoutes={allRoutes} 

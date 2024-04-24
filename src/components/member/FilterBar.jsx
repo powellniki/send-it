@@ -1,21 +1,23 @@
+import '../../components/Employee/filterBar.css'
+
 
 export const MemberFilterBar = ({allRoutes, currentUser, setDisplayedRoutes}) => {
 
-    const handleToDoRoutes = () => {
+    const handleToDo = () => {
         const toDoRoutes = allRoutes.filter(route => {
             return route.todos.some(todo => todo.userId === currentUser.id)
         })
         setDisplayedRoutes(toDoRoutes)
     }
 
-    const handleLikesFilter = () => {
+    const handleLikes = () => {
         const likedRoutes = allRoutes.filter(route => {
             return route.likes.some(like => like.userId === currentUser.id)
         })
         setDisplayedRoutes(likedRoutes)
     }
 
-    const handleSentFilter = () => {
+    const handleSent = () => {
         const sentRoutes = allRoutes.filter(route => {
             return route.ticks.some(tick => tick.userId === currentUser.id)
         })
@@ -25,11 +27,11 @@ export const MemberFilterBar = ({allRoutes, currentUser, setDisplayedRoutes}) =>
 
 
 return (
-    <div>
+    <div className="filter-bar">
 
-        <button onClick={handleSentFilter}>Ticks</button>
-        <button onClick={handleToDoRoutes}>To-Do's</button>
-        <button onClick={handleLikesFilter}>Liked</button>
+        <button className="filter-item" onClick={handleSent}>Ticks</button>
+        <button className="filter-item" onClick={handleToDo}>To-Do's</button>
+        <button className="filter-item" onClick={handleLikes}>Liked</button>
 
         {/* STRETCH GOAL */}
         {/* <button>Saved</button> */}

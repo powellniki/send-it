@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { getRoutesByRouteId } from "../../services/routeService.js"
-import { getLikesByRouteId, postLikes } from "../../services/likeServices.js"
+import { deleteLike, getLikesByRouteId, postLikes } from "../../services/likeServices.js"
 import { deleteTick, postTicks } from "../../services/tickServices.js"
 import { getTicksByRouteId } from "../../services/tickServices.js"
 import { getCommentsbyRouteId } from "../../services/commentService.js"
-import { getToDosByRouteId, postToDo } from "../../services/toDoServices.js"
+import { deleteToDo, getToDosByRouteId, postToDo } from "../../services/toDoServices.js"
 
 
 const setDate = () => {
@@ -66,50 +66,20 @@ export const RouteDetails = ({currentUser}) => {
     },[currentUser, update])
 
 
-    // CHECKS IF USER HAS MARKED A ROUTE AS TO DO AND IF NOT THEY CAN MARK IT
-    const checkIfToDo = () => {
-        const toDoByMember = todosExpandRoute.some(todo => todo.userId === currentUser.id)
-        if (!toDoByMember) {
-            handleToDo()
-        } else {
-            window.alert('you have already marked this route as to-do')
-        }
-    }
+    // functions for adding likes, ticks, to-dos
     const handleToDo = () => {
         const newToDo = {
             userId: currentUser.id,
             routeId: route.id           
         }
-        postToDo(newToDo).then(getAndSetRoute()).then(getTicksForRoute())
-    }
-
-
-    // CHECKS IF USER HAS LIKED A ROUTE AND IF NOT THEY CAN LIKE IT
-    const checkIfLiked = () => {
-        const likedByMember = likesExpandRoute.some(like => like.userId === currentUser.id)
-            if (!likedByMember) {
-                handleLike()
-
-            } else {
-                window.alert('you have already liked this route')
-            }
+        postToDo(newToDo).then(setUpdate(!update))
     }
     const handleLike = () => {
         const newLike = {
             userId: currentUser.id,
             routeId: route.id
         }
-        postLikes(newLike).then(getAndSetRoute()).then(getLikesForRoute())
-    }
-
-    // CHECKS IF ROUTES ARE TICKED AND WILL ALLOW USER TO TICK THEM IF NOT
-    const checkIfTicked = () => {
-        const tickedByMember = ticksExpandRoute.some(tick => tick.userId === currentUser.id)
-            if (!tickedByMember) {
-                handleTick()
-            } else {
-                window.alert('you have already ticked this route')
-            }
+        postLikes(newLike).then(setUpdate(!update))
     }
     const handleTick = () => {
         const newTick = {
@@ -119,10 +89,20 @@ export const RouteDetails = ({currentUser}) => {
         }
         postTicks(newTick).then(setUpdate(!update))
     }
-
-    const handleDelete = (tickId) => {
-        deleteTick(tickId).then(setUpdate(!update))
-
+    
+    
+    //  functions for deleting likes, ticks, to-dos
+    const deleteMemberToDo = () => {
+        const foundToDo = todosExpandRoute.find(todo => todo.userId === currentUser.id)
+        deleteToDo(foundToDo.id).then(setUpdate(!update))
+    }
+    const deleteMemberLike = () => {
+        const foundLike = likesExpandRoute.find(like => like.userId === currentUser.id)
+        deleteLike(foundLike.id).then(setUpdate(!update))
+    }
+    const deleteMemberTick = () => {
+        const foundTick = ticksExpandRoute.find(tick => tick.userId === currentUser.id)
+        deleteTick(foundTick.id).then(setUpdate(!update))
     }
 
 
@@ -142,10 +122,9 @@ export const RouteDetails = ({currentUser}) => {
                 <div>Description: {route.description}</div>
             </div>
             <div className="route-buttons">
-
-                <button onClick={checkIfToDo}>To-Do</button>
-                <button onClick={checkIfTicked}>Tick</button>
-                <button onClick={checkIfLiked}>Like</button>
+                {likesExpandRoute.some(like => like.userId === currentUser.id) ? <button onClick={deleteMemberLike}>unlike</button> : <button onClick={handleLike}>Like</button>}
+                {todosExpandRoute.some(todo => todo.userId === currentUser.id) ? <button onClick={deleteMemberToDo}>NVM</button> : <button onClick={handleToDo}>To-Do</button>}
+                {ticksExpandRoute.some(tick => tick.userId === currentUser.id) ? <button onClick={deleteMemberTick}>Untick</button> : <button onClick={handleTick}>Tick</button>}
                 {/* <button onClick={navigateToComment}>comment</button> */}
             </div>
 
@@ -156,9 +135,6 @@ export const RouteDetails = ({currentUser}) => {
                         return (
                             <div key={tick.id} className="activity-item">
                                 <div>{tick.user?.fullName} climbed this route on {tick.date}</div>
-                                <div>
-                                    {tick.userId === currentUser.id ? <button onClick={() => {handleDelete(tick.id)}}>Delete</button> : ""}
-                                </div>
                             </div>
                         )
                     })}
