@@ -6,9 +6,10 @@ import { MemberRouteObject } from "../route/MemberRouteObject.jsx"
 
 export const MemberHome = ({currentUser}) => {
     const [allRoutes, setAllRoutes] = useState([])
-    const [showLikedOnly, setShowLikedOnly] = useState(false)
-    const [showSentOnly, setShowSentOnly] = useState(false)
-    const [showSavedOnly, setShowSavedOnly] = useState(false)
+    const [showLikedOnly, setShowLikedOnly] = useState([])
+    const [showSentOnly, setShowSentOnly] = useState([])
+    const [showSavedOnly, setShowSavedOnly] = useState([])
+    const [displayedRoutes, setDisplayedRoutes] = useState([])
 
 
 
@@ -22,6 +23,9 @@ export const MemberHome = ({currentUser}) => {
         getAndSetAllRoutes() 
     },[])
 
+    useEffect(() => {
+        setDisplayedRoutes(allRoutes) 
+    },[allRoutes])
 
 
 
@@ -29,10 +33,14 @@ export const MemberHome = ({currentUser}) => {
         <div className="member-home">
             <h2>Gym Routes</h2>
             <div className="member-route-filter">
-                <MemberFilterBar allRoutes={allRoutes} currentUser={currentUser} />
+                <MemberFilterBar 
+                    allRoutes={allRoutes} 
+                    currentUser={currentUser} 
+                    setDisplayedRoutes={setDisplayedRoutes}
+                />
             </div>
             <div className="routes">
-                {allRoutes.map(route => {
+                {displayedRoutes.map(route => {
                     return <MemberRouteObject route={route} key={route.id} currentUser={currentUser} allRoutes={allRoutes}/>
                 })}
             </div>

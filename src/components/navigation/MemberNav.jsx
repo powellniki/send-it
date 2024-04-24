@@ -12,6 +12,9 @@ export const MemberNav = () => {
             <li className="navbar-info">
                 <Link to="myprofile">My Profile</Link>
             </li>
+            <li className="navbar-info">
+                <Link to="search">Find a Route</Link>
+            </li>
 
             {localStorage.getItem("sendit_user") ? (
                 <li className="navbar-info navbar-logout">

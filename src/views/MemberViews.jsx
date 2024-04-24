@@ -5,6 +5,7 @@ import { Welcome } from "./Welcome.jsx"
 import { RouteDetails } from "../components/route/RouteDetails.jsx"
 import { RouteTickForm } from "../components/route/RouteTickForm.jsx"
 import { MemberProfile } from "../components/member/MemberProfile.jsx"
+import { RouteSearch } from "../components/member/RouteSearch.jsx"
 
 
 export const MemberViews = ({currentUser}) => {
@@ -30,8 +31,9 @@ export const MemberViews = ({currentUser}) => {
             </Route>
 
             <Route path="myprofile" element={<MemberProfile currentUser={currentUser}/>} />
-            
+            <Route path="search" element={<RouteSearch currentUser={currentUser}/>} />
 
+            
 
         </Route>
     </Routes>
