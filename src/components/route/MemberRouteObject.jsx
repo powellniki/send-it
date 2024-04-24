@@ -1,12 +1,12 @@
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import './route.css'
 
 
 export const MemberRouteObject = ({route}) => {
 
 
-    const navigate = useNavigate()
-    const {routeId} = useParams()
+    // const navigate = useNavigate()
+    // const {routeId} = useParams()
 
     
 

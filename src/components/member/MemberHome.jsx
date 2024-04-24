@@ -41,7 +41,7 @@ export const MemberHome = ({currentUser}) => {
             </div>
             <div className="routes">
                 {displayedRoutes.map(route => {
-                    return <MemberRouteObject route={route} key={route.id} currentUser={currentUser} allRoutes={allRoutes}/>
+                    return <MemberRouteObject route={route} key={route.id} />
                 })}
             </div>
         </div>

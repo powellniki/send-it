@@ -31,6 +31,8 @@ export const MemberViews = ({currentUser}) => {
             </Route>
 
             <Route path="myprofile" element={<MemberProfile currentUser={currentUser}/>} />
+                <Route path="edit" element={<>this is where to edit member profile</>} />
+
             <Route path="search" element={<RouteSearch currentUser={currentUser}/>} />
 
             

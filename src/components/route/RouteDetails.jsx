@@ -142,6 +142,7 @@ export const RouteDetails = ({currentUser}) => {
                 <div>Description: {route.description}</div>
             </div>
             <div className="route-buttons">
+
                 <button onClick={checkIfToDo}>To-Do</button>
                 <button onClick={checkIfTicked}>Tick</button>
                 <button onClick={checkIfLiked}>Like</button>
