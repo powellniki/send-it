@@ -36,10 +36,10 @@ export const Login = () => {
 
   return (
     <main className="auth-container">
-      <section>
+      <div className="auth-content">
         <form className="auth-form" onSubmit={handleLogin}>
-          <h1 className="header">Send It!</h1>
-          <h2>Please sign in</h2>
+          <h1 className="header-primary">Send It!</h1>
+          <h2 className="header-secondary">please sign in</h2>
           <fieldset className="auth-fieldset">
             <div>
               <input
@@ -59,10 +59,10 @@ export const Login = () => {
             </div>
           </fieldset>
         </form>
-      </section>
       <section className="register-link">
         <Link to="/register">Not a member yet?</Link>
       </section>
+      </div>
     </main>
   )
 }

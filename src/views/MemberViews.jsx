@@ -18,11 +18,11 @@ export const MemberViews = ({currentUser}) => {
                 <Outlet />
             </>
         }>
-            <Route index element={<Welcome />} />
+            <Route index element={<MemberHome currentUser={currentUser} />} />
+            {/* <Route index element={<Welcome />} /> */}
 
-            <Route path="home">
-                <Route index element={<MemberHome currentUser={currentUser} />} />
-            </Route>
+            {/* <Route path="home"> */}
+            {/* </Route> */}
 
             <Route path="route">
                 <Route path=":routeId" element={<RouteDetails currentUser={currentUser} />} />
