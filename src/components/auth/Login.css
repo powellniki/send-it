@@ -1,3 +1,11 @@
+.login-page {
+  background-image: url('/src/components/pictures/free-climbing-wall-vector.png');
+  background-size: cover; /* Adjusts the background image to cover the entire element */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the background image from repeating */
+  /* Add other styles for your module here */
+}
+
 
 .login-page {
   display: flex;
@@ -31,7 +39,7 @@
 }
 .landing-one {
   color:#f68732;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
   font-size: 130px;
 }
 
@@ -70,7 +78,6 @@
 .auth-form-input {
   width: 88%;
   padding: 15px;
-  /* margin-top: 20px; */
   margin-bottom: 10px;
   margin-right: 10px;
   border: 1px solid #ced4da; /* Light gray border */

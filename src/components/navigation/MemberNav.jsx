@@ -6,25 +6,30 @@ export const MemberNav = () => {
 
     return (
         <ul className="navbar">
-            <div className="navbar-title">
-                <li className="navbar-info">
-                    <Link className="nav-text">send<span className="green-font">it</span></Link>
+
+            <div className="navbar-logo">
+                <li className="navbar-item">
+                    <div className="navbar-title">
+                        <span className="logo1">send</span><span className="logo2">it</span>
+                    </div>
                 </li>
             </div>
-            <div className="navbar-routes">
-                <li className="navbar-info">
-                    <Link className="nav-text" to="home">my routes</Link>
+
+            <div className="navbar-elements">
+                <li className="navbar-item">
+                    <Link className="nav-text" to="/">myroutes</Link>
                 </li>
-                <li className="navbar-info">
+                <li className="navbar-item">
                     <Link className="nav-text" to="myprofile">profile</Link>
                 </li>
-                <li className="navbar-info">
-                    <Link className="nav-text" to="search">route finder</Link>
+                <li className="navbar-item">
+                    <Link className="nav-text" to="search">routefinder</Link>
                 </li>
             </div>
+
             <div className="navbar-logout">
                 {localStorage.getItem("sendit_user") ? (
-                    <li className="navbar-info navbar-logout">
+                    <li className="navbar-item navbar-logout">
                         <Link
                         to=""
                         onClick={() => {

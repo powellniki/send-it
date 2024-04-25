@@ -33,20 +33,22 @@ export const MemberHome = ({currentUser}) => {
 
 
     return(
-        <div className="member-home">
-            <h2 className="heading">My Routes</h2>
-            <div className="member-route-filter">
-                <MemberFilterBar 
-                    allRoutes={allRoutes} 
-                    currentUser={currentUser} 
-                    setDisplayedRoutes={setDisplayedRoutes}
-                />
-            </div>
-            <div className="routes">
-                {displayedRoutes.map(route => {
-                    return <MemberRouteObject route={route} key={route.id} />
-                })}
-            </div>
+        <div className="container-member-home">
+
+                <h2 className="heading">My Routes</h2>
+                <div className="member-route-filter">
+                    <MemberFilterBar 
+                     allRoutes={allRoutes} 
+                        currentUser={currentUser} 
+                        setDisplayedRoutes={setDisplayedRoutes}
+                    />
+                </div>
+                <div className="routes">
+                    {displayedRoutes.map(route => {
+                        return <MemberRouteObject route={route} key={route.id} />
+                    })}
+                </div>
+
         </div>
     )
 }

@@ -36,8 +36,9 @@ export const Login = () => {
 
   return (
   <div className="login-page">
+    
     <div className="auth-container">
-      <div className="auth-content">
+      <section className="auth-content">
         <form className="auth-form" onSubmit={handleLogin}>
           <h1 className="header-primary">Send It!</h1>
           <h2 className="header-secondary">please log in</h2>
@@ -60,14 +61,16 @@ export const Login = () => {
             </div>
           </fieldset>
         </form>
-      <section className="register-link">
-        <Link to="/register">Not a member yet?</Link>
+        <section className="register-link">
+          <Link to="/register">Not a member yet?</Link>
+        </section>
       </section>
     </div>
-    </div>
+
     <div className="landing">
       <h1 className="landing-one">ELEVATE YOUR CLIMBING EXPERIENCE</h1>
     </div>
+
   </div>
   )
 }

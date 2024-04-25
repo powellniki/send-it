@@ -13,10 +13,11 @@ export const MemberViews = ({currentUser}) => {
     return (
         <Routes>
         <Route path="/" element={
-            <>
+            <div className="overlay">
                 <MemberNav />
                 <Outlet />
-            </>
+            </div>
+
         }>
             <Route index element={<MemberHome currentUser={currentUser} />} />
             {/* <Route index element={<Welcome />} /> */}

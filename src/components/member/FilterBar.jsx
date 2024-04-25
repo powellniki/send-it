@@ -1,4 +1,4 @@
-import '../../components/Employee/filterBar.css'
+import './filterBar.css'
 
 
 export const MemberFilterBar = ({allRoutes, currentUser, setDisplayedRoutes}) => {
@@ -37,8 +37,7 @@ return (
         {/* <button>Saved</button> */}
 
     </div>
-)
-
+    )
 }
 
 

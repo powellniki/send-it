@@ -1,6 +1,26 @@
 
-.heading {
-    font-size: 35px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin: 35px 0px 10px 10px;
+.container-member-home {
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url('/src/components/pictures/free-climbing-wall-vector.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+
+    .heading {
+        font-size: 75px;
+        font-family: 'abduction';
+        padding-top: 50px;
+        margin: 15px 0px 100px 30px;
+        color: #f68732;
+    }
+
 }
+
+
+
+
+
