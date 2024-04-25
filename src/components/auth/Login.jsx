@@ -24,7 +24,7 @@ export const Login = () => {
             name: user.name,
             isStaff: user.isStaff,
             email: user.email
-          })
+          }) 
         )
 
         navigate("/")
@@ -35,11 +35,12 @@ export const Login = () => {
   }
 
   return (
-    <main className="auth-container">
+  <div className="login-page">
+    <div className="auth-container">
       <div className="auth-content">
         <form className="auth-form" onSubmit={handleLogin}>
           <h1 className="header-primary">Send It!</h1>
-          <h2 className="header-secondary">please sign in</h2>
+          <h2 className="header-secondary">please log in</h2>
           <fieldset className="auth-fieldset">
             <div>
               <input
@@ -50,7 +51,7 @@ export const Login = () => {
                 placeholder="Email address"
                 required
                 autoFocus
-              />
+                />
             </div>
           </fieldset>
           <fieldset className="auth-fieldset">
@@ -62,7 +63,11 @@ export const Login = () => {
       <section className="register-link">
         <Link to="/register">Not a member yet?</Link>
       </section>
-      </div>
-    </main>
+    </div>
+    </div>
+    <div className="landing">
+      <h1 className="landing-one">ELEVATE YOUR CLIMBING EXPERIENCE</h1>
+    </div>
+  </div>
   )
 }

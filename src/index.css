@@ -2,3 +2,26 @@ fieldset {
     border: none;
 }
 
+body {
+    background-image: url('/Users/nikipowell/workspace/send-it/src/components/pictures/free-climbing-wall-vector.png');
+    background-size: cover; /* Adjusts the background image to cover the entire viewport */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background image from repeating */
+    width: 100vw;
+    height: 100vh;
+  }
+
+  @font-face {
+    font-family: 'mexcellent3D';
+    src: url('src/components/fonts/mexcellent3d/Mexcellent3D.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'abduction';
+    src: url('src/components/fonts/abduction/abduction2002.ttf') format('truetype');
+  }  
+  
+  @font-face {
+    font-family: 'roundlight';
+    src: url('src/components/fonts/round-light/Round Light.ttf') format('truetype');
+  }
