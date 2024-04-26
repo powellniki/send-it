@@ -1,0 +1,111 @@
+
+
+.container-route-details {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100vw;
+    background-color: #b7dbc9;
+
+
+    .heading {
+        font-size: 50px;
+        font-family: 'abduction';
+        text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+        padding-top: 50px;
+        margin: 15px 0px 100px 30px;
+        color: #f68732;
+    }
+
+    .route-details {
+        display: flex;
+        flex-direction: column;
+
+        .details-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            border: 1px rgb(183, 181, 181) solid;
+            padding: 35px;
+            margin: auto;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+            .route-image {
+    
+                .image {
+                    background-color: gray;
+                    height: 400px;
+                    width: 300px;
+                }
+            }
+        }
+
+        .route-information {
+            width: 500px;
+            padding: 20px;
+
+            .route-info {
+                font-family: 'tahoma';
+            }
+        }
+
+        .route-buttons {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+            button {
+                width: 20%;
+                height: 45px;
+                margin: 20px;
+                font-weight: 100;
+                padding-top: 5px;
+                background-color: rgba(162, 41, 248, 0.983);
+                border: none;
+                border-radius: 8px;
+                color: #ffffff; /* White text color */
+                font-family: 'abduction';
+                font-size: 25px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+            button:hover {
+                color: #ffffff; /* White text color */
+                font-size: 55px;
+                text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+            }
+        }
+
+    }
+
+    .route-activity {
+        margin: 40px 100px;
+        border: 1px rgb(183, 181, 181) solid;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+        h4{
+            font-size: 25px;
+            font-family: 'abduction';
+            color: #32b473;
+        }
+
+        .activity-container {
+            margin: 20px;
+
+            .activities {
+                margin: 20px;
+            }
+        }
+        .comments-container {
+            margin: 20px;
+
+            .comments {
+                margin: 20px;
+            }
+        }
+    }
+}

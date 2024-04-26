@@ -1,9 +1,11 @@
 
 .container-member-home {
+    display: flex;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
-
-    background-image: url('/src/components/pictures/free-climbing-wall-vector.png');
+    background-color: #b7dbc9;
+    /* background-image: url('/src/components/pictures/free-climbing-wall-vector.png'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -13,9 +15,17 @@
     .heading {
         font-size: 75px;
         font-family: 'abduction';
+        text-shadow: 0 0 10px rgba(0, 0, 0, 1);
         padding-top: 50px;
         margin: 15px 0px 100px 30px;
         color: #f68732;
+    }
+
+    .routes {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
     }
 
 }

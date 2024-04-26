@@ -1,32 +1,56 @@
-.route-item {
+.route-link {
     display: flex;
     flex-wrap: wrap;
+    flex-basis: 30%;
     border: lime 1px dashed;
     border-radius: 10px;
-    padding: 2px;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 2px;
     margin: 5px;
     background-color: #f3f7f1;
+
+    .route-item {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 5px;
+    
+        .route-primary {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+
+            .route-details-primary {
+                width: 60%;
+
+                .route-name {
+                    font-family: 'abduction';
+                }
+            }
+
+            .route-details-secondary {
+                width: 30%;
+                text-align: right;
+
+            }
+
+
+        }
+        .route-secondary {
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+
+    }
 }
 
-.route-name {
-    font-family: 'abduction';
-    font-size: 25px;
-}
 
-.route-item-main {
-    padding: 5px;
-}
 
-.route-item-secondary {
-    margin-left: auto;
-    padding: 5px;
-}
 
-.route-date {
-    margin-left: 15px;
-    color: red;
-}
+
+
+
 
 .route-edit {
     margin-top: 25px;
@@ -39,11 +63,4 @@
 .route-link {
     text-decoration: none;
     color: #32b473;
-}
-
-.like-tick-comment {
-    width: 100%;
-    padding-left: 5px;
-    padding-top: 20px;
-    font-size: 12px;
 }

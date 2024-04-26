@@ -6,6 +6,7 @@ import { deleteTick, postTicks } from "../../services/tickServices.js"
 import { getTicksByRouteId } from "../../services/tickServices.js"
 import { getCommentsbyRouteId } from "../../services/commentService.js"
 import { deleteToDo, getToDosByRouteId, postToDo } from "../../services/toDoServices.js"
+import './routeDetails.css'
 
 
 const setDate = () => {
@@ -108,51 +109,69 @@ export const RouteDetails = ({currentUser}) => {
 
 
     return (
-        <section className="route-information">
-            <h2>{route.name}</h2>
-            <div className="route-image">
-                <div>route image</div>
+        <section className="container-route-details">
+
+            <h2 className="heading">{route.name}</h2>
+
+            <div className="route-details">
+
+                <div className="details-container">
+
+                    <div className="route-image">
+                        <div className="image">route image</div>
+                    </div>
+
+                    <div className="route-information">
+                        <div className="route-info">Type: {route.type?.name}</div>
+                        <div className="route-info">Grade: {route.grade?.name}</div>
+                        <div className="route-info">Style: {route.style?.name}</div>
+                        <div className="route-info">Setter: {route.user?.fullName}</div>
+                        <div className="route-info">Date Set: {route.dateSet}</div>
+                        <div className="route-info">Description: {route.description}</div>
+                    </div>
+                </div>
+
+                <div className="route-buttons">
+                    {likesExpandRoute.some(like => like.userId === currentUser.id) ? <button onClick={deleteMemberLike}>unlike</button> : <button onClick={handleLike}>Like</button>}
+                    {todosExpandRoute.some(todo => todo.userId === currentUser.id) ? <button onClick={deleteMemberToDo}>NVM</button> : <button onClick={handleToDo}>To-Do</button>}
+                    {ticksExpandRoute.some(tick => tick.userId === currentUser.id) ? <button onClick={deleteMemberTick}>Untick</button> : <button onClick={handleTick}>Tick</button>}
+                    {/* <button onClick={navigateToComment}>comment</button> */}
+                </div>
+
             </div>
-            <div className="route">
-                <div>Type: {route.type?.name}</div>
-                <div>Grade: {route.grade?.name}</div>
-                <div>Style: {route.style?.name}</div>
-                <div>Setter: {route.user?.fullName}</div>
-                <div>Date Set: {route.dateSet}</div>
-                <div>Description: {route.description}</div>
-            </div>
-            <div className="route-buttons">
-                {likesExpandRoute.some(like => like.userId === currentUser.id) ? <button onClick={deleteMemberLike}>unlike</button> : <button onClick={handleLike}>Like</button>}
-                {todosExpandRoute.some(todo => todo.userId === currentUser.id) ? <button onClick={deleteMemberToDo}>NVM</button> : <button onClick={handleToDo}>To-Do</button>}
-                {ticksExpandRoute.some(tick => tick.userId === currentUser.id) ? <button onClick={deleteMemberTick}>Untick</button> : <button onClick={handleTick}>Tick</button>}
-                {/* <button onClick={navigateToComment}>comment</button> */}
+            
+            <div className="route-activity">
+
+                <div className="activity-container">
+                    <h4>Activity: </h4>
+                    <div className="activities">
+                        {ticksExpandRoute.map(tick => {
+                            return (
+                                <div key={tick.id} className="activity-item">
+                                    <div>{tick.user?.fullName} climbed this route on {tick.date}</div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+
+                <div className="comments-container">
+                    <h4>Comments:</h4>
+                    <div className="comments">
+                        {commentsExpandRoute.map(comment => {
+                            return (
+                                <div key={comment.id} className="comment-item">
+                                    <div>{comment.user?.fullName}</div>
+                                    <div>{comment.comment}</div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+
             </div>
 
-            <div className="route-activity">
-                <h4>Activity: </h4>
-                <div>
-                    {ticksExpandRoute.map(tick => {
-                        return (
-                            <div key={tick.id} className="activity-item">
-                                <div>{tick.user?.fullName} climbed this route on {tick.date}</div>
-                            </div>
-                        )
-                    })}
-                </div>
-            </div>
-            <div className="route-comments">
-                <h4>Comments:</h4>
-                <div>
-                    {commentsExpandRoute.map(comment => {
-                        return (
-                            <div key={comment.id} className="comment-item">
-                                <div>{comment.user?.fullName}</div>
-                                <div>{comment.comment}</div>
-                            </div>
-                        )
-                    })}
-                </div>
-            </div>
+            
         </section>
     )
 }

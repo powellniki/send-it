@@ -36,13 +36,18 @@ export const Login = () => {
 
   return (
   <div className="login-page">
+
+  <h1 className="auth-logo"><span>Send</span>It</h1>
     
     <div className="auth-container">
+
       <section className="auth-content">
+
         <form className="auth-form" onSubmit={handleLogin}>
-          <h1 className="header-primary">Send It!</h1>
-          <h2 className="header-secondary">please log in</h2>
+
+
           <fieldset className="auth-fieldset">
+
             <div>
               <input
                 type="email"
@@ -54,21 +59,26 @@ export const Login = () => {
                 autoFocus
                 />
             </div>
+
           </fieldset>
+
           <fieldset className="auth-fieldset">
             <div>
               <button type="submit">Sign in</button>
             </div>
           </fieldset>
+          <section className="register-link">
+            <Link to="/register">Not a member yet?</Link>
+          </section>
         </form>
-        <section className="register-link">
-          <Link to="/register">Not a member yet?</Link>
-        </section>
-      </section>
-    </div>
 
-    <div className="landing">
-      <h1 className="landing-one">ELEVATE YOUR CLIMBING EXPERIENCE</h1>
+      </section>
+
+      <div className="landing">
+        <h1 className="landing-one">ELEVATE YOUR CLIMBING EXPERIENCE</h1>
+      </div>
+
+
     </div>
 
   </div>

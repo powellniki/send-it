@@ -24,7 +24,6 @@
     .filter-item:hover {
         color: #ffffff; /* White text color */
         font-size: 55px;
-
         text-shadow: 0 0 10px rgba(0, 0, 0, 1);
     }
 
