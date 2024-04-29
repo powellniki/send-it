@@ -4,7 +4,7 @@ import { getRoutesByRouteId } from "../../services/routeService.js"
 import { deleteLike, getLikesByRouteId, postLikes } from "../../services/likeServices.js"
 import { deleteTick, postTicks } from "../../services/tickServices.js"
 import { getTicksByRouteId } from "../../services/tickServices.js"
-import { getCommentsbyRouteId } from "../../services/commentService.js"
+import { getCommentsbyRouteId, postComment } from "../../services/commentService.js"
 import { deleteToDo, getToDosByRouteId, postToDo } from "../../services/toDoServices.js"
 import './routeDetails.css'
 
@@ -25,6 +25,7 @@ export const RouteDetails = ({currentUser}) => {
     const [ticksExpandRoute, setTicksExpandRoute] = useState([])
     const [todosExpandRoute, setTodosExpandRoute] = useState([])
     const [commentsExpandRoute, setCommentsExpandRoute] = useState([])
+    const [comment, setComment] = useState("")
     const [update, setUpdate] = useState(false)
 
     const {routeId} = useParams()
@@ -90,6 +91,20 @@ export const RouteDetails = ({currentUser}) => {
         }
         postTicks(newTick).then(setUpdate(!update))
     }
+
+    const handleCommentSubmit = () => {
+        const newComment = {
+            userId: currentUser.id,
+            routeId: route.id,
+            comment: comment,
+            date: setDate()
+        }
+        postComment(newComment)
+            .then(() => {
+                setComment(""),
+                setUpdate(!update)
+        })
+    }
     
     
     //  functions for deleting likes, ticks, to-dos
@@ -133,7 +148,7 @@ export const RouteDetails = ({currentUser}) => {
 
                 <div className="route-buttons">
                     {likesExpandRoute.some(like => like.userId === currentUser.id) ? <button onClick={deleteMemberLike}>unlike</button> : <button onClick={handleLike}>Like</button>}
-                    {todosExpandRoute.some(todo => todo.userId === currentUser.id) ? <button onClick={deleteMemberToDo}>NVM</button> : <button onClick={handleToDo}>To-Do</button>}
+                    {todosExpandRoute.some(todo => todo.userId === currentUser.id) ? <button onClick={deleteMemberToDo}>✓ To-Do</button> : <button onClick={handleToDo}>+ To-Do</button>}
                     {ticksExpandRoute.some(tick => tick.userId === currentUser.id) ? <button onClick={deleteMemberTick}>Untick</button> : <button onClick={handleTick}>Tick</button>}
                     {/* <button onClick={navigateToComment}>comment</button> */}
                 </div>
@@ -161,11 +176,25 @@ export const RouteDetails = ({currentUser}) => {
                         {commentsExpandRoute.map(comment => {
                             return (
                                 <div key={comment.id} className="comment-item">
-                                    <div>{comment.user?.fullName}</div>
-                                    <div>{comment.comment}</div>
+                                    <div className="comment-user-name">{comment.user?.fullName}</div>
+                                    <div className="comment-user-comment">{comment.comment}<span> - {comment.date}</span></div>
                                 </div>
                             )
                         })}
+                    </div>
+                    <div className="comment-input">
+                        <textarea
+                            className="comment-text-area"
+                            type="text"
+                            name= "comment"
+                            placeholder="leave a comment..."
+                            value = {comment}
+                            onChange={(event) => {setComment(event.target.value)}}
+                            required
+                        ></textarea>
+                        <div className="btn-comment-container">
+                            <button className="btn-comment" onClick={handleCommentSubmit}>➲</button>
+                        </div>
                     </div>
                 </div>
 

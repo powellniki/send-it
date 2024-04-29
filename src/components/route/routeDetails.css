@@ -99,13 +99,71 @@
 
             .activities {
                 margin: 20px;
+
+                .activity-item {
+                    border-bottom: 1px lightseagreen solid;
+                    padding-bottom: 15px;
+                    padding-top: 15px;
+                    font-family: 'tahoma';
+                    font-size: 14px;
+                }
             }
         }
         .comments-container {
             margin: 20px;
-
+            
             .comments {
                 margin: 20px;
+                
+                .comment-item {
+                    border-bottom: 1px lightseagreen solid;
+                    padding-bottom: 15px;
+                    font-family: 'tahoma';
+                    font-size: 14px;
+
+                    .comment-user-name {
+                        font-size: 15px;
+                        padding-bottom: 5px;
+                        padding-top: 15px;
+                    }
+                    .comment-user-comment {
+                        font-family: 'Times New Roman', Times, serif;
+                    }
+                }
+            }
+
+            .comment-input {
+                
+                .comment-text-area {
+                    width: 98%;
+                    height: 100px;
+                    border-radius: 8px;
+                    font-family: 'tahoma';
+                    font-size: 14px;
+                    padding: 5px 10px;
+                }
+
+                .btn-comment-container {
+                    display: flex;
+                    justify-content: end;
+                    padding-right: 5px;
+                    padding-top: 5px;
+                    
+                    .btn-comment {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 35px;
+                        width: 35px;
+                        border: none;
+                        border-radius: 8px;
+                        background-color: rgba(162, 41, 248, 0.983);
+                        color: #ffffff;
+                        font-size: 25px;
+                    }
+                }
+
+
             }
         }
     }
