@@ -98,14 +98,14 @@ export const EditRoute = ({currentUser}) => {
 
                     <fieldset>
                         <div className="route-info">
-                        <div className="form-information">Route Name: </div>
+                            <div className="form-information">Route Name: </div>
                             <input type="text" name="name" value={route?.name} onChange={handleInputChange} required></input>
                         </div>
-                    </fieldset>
+                    </fieldset>ß
 
                     <fieldset>
                         <div className="route-info">
-                        <div className="form-information">Route Type: </div>
+                            <div className="form-information">Route Type: </div>
                             <select id="type-select" name="typeId" value={route?.typeId} onChange={handleInputChange} required>
                                 <option value='0' id="type"></option>
                                     {types.map(type => {
@@ -117,7 +117,7 @@ export const EditRoute = ({currentUser}) => {
 
                     <fieldset>
                         <div className="route-info">
-                        <div className="form-information">Route Grade: </div>
+                            <div className="form-information">Route Grade: </div>
                             <select id="grade-select" name="gradeId" value={route?.gradeId} onChange={handleInputChange} required>
                                 <option value='0' id="grade"></option>
                                     {grades.map(grade => {
@@ -129,7 +129,7 @@ export const EditRoute = ({currentUser}) => {
 
                     <fieldset>
                         <div className="route-info">
-                        <div className="form-information">Route Style: </div>
+                            <div className="form-information">Route Style: </div>
                             <select id="style-select" name="styleId" value={route?.styleId} onChange={handleInputChange} required>
                                 <option value='0' id="style"></option>
                                     {styles.map(style => {

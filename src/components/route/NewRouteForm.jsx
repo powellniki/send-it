@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getRouteGrades, getRouteStyles, getRouteTypes, postRoute } from "../../services/routeService.js"
 import { useNavigate } from "react-router-dom"
+import './newRouteForm.css'
 
 
 
@@ -78,64 +79,80 @@ export const NewRouteForm = ({currentUser}) => {
 
     return (
         <form className="new-route-form">
-            <h2>Lets Set a New Route!</h2>
 
-            <fieldset>
-                <div className="route-info">
-                    <input type="text" name="image" placeholder="Route Image URL" onChange={(event) => {setRouteImage(event.target.value)}} required></input>
-                </div>
-            </fieldset>
+            <h2 className="heading">Lets Set a New Route!</h2>
 
-            <fieldset>
-                <div className="route-info">
-                    <input type="text" name="name" placeholder="Route Name" onChange={(event) => {setRouteName(event.target.value)}} required></input>
-                </div>
-            </fieldset>
+            <div className="form-container">
 
-            <fieldset>
-                <div className="route-info">
-                    <select id="type-select" onChange={(event) => {setRouteType(event.target.value)}} required>
-                        <option value='0' id="type">Select a Route Type... </option>
-                            {types.map(type => {
-                                return <option value={type.id} key={type.id}>{type.name}</option>
-                            })}
-                    </select>
-                </div>
-            </fieldset>
+                <div className="form">
 
-            <fieldset>
-                <div className="route-info">
-                     <select id="grade-select" onChange={(event) => {setRouteGrade(event.target.value)}} required>
-                        <option value='0' id="grade">Select a Grade...</option>
-                            {grades.map(grade => {
-                                return <option value={grade.id} key={grade.id}>{grade.name}</option>
-                            })}
-                    </select>
-                </div>
-            </fieldset>
+                    <fieldset>
+                        <div className="route-info">
+                            <div className="form-information">Route URL: </div>
+                            <input type="text" name="image" placeholder="Route Image URL" onChange={(event) => {setRouteImage(event.target.value)}} required></input>
+                        </div>
+                    </fieldset>
 
-            <fieldset>
-                <div className="route-info">
-                    <select id="style-select" onChange={(event) => {setRouteStyle(event.target.value)}} required>
-                        <option value='0' id="style">Select a Style</option>
-                            {styles.map(style => {
-                                return <option value={style.id} key={style.id}>{style.name}</option>
-                            })}
-                    </select>
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="route-info">
-                    <textarea type="text" name="description" placeholder="Write a brief route description..." onChange={(event) => {setRouteDescription(event.target.value)}} required ></textarea>
+                    <fieldset>
+                        <div className="route-info">
+                            <div className="form-information">Route Name: </div>
+                            <input type="text" name="name" placeholder="Route Name" onChange={(event) => {setRouteName(event.target.value)}} required></input>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div className="route-info">
+                            <div className="form-information">Route Type: </div>
+                            <select id="type-select" onChange={(event) => {setRouteType(event.target.value)}} required>
+                                <option value='0' id="type">Select a Route Type... </option>
+                                    {types.map(type => {
+                                        return <option value={type.id} key={type.id}>{type.name}</option>
+                                    })}
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div className="route-info">
+                            <div className="form-information">Route Grade: </div>
+                            <select id="grade-select" onChange={(event) => {setRouteGrade(event.target.value)}} required>
+                                <option value='0' id="grade">Select a Grade...</option>
+                                    {grades.map(grade => {
+                                        return <option value={grade.id} key={grade.id}>{grade.name}</option>
+                                    })}
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div className="route-info">
+                            <div className="form-information">Route Style: </div>
+                            <select id="style-select" onChange={(event) => {setRouteStyle(event.target.value)}} required>
+                                <option value='0' id="style">Select a Style</option>
+                                    {styles.map(style => {
+                                        return <option value={style.id} key={style.id}>{style.name}</option>
+                                    })}
+                            </select>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div className="route-info">
+                            <div className="form-information">Route Description: </div>
+                            <textarea type="text" name="description" placeholder="Write a brief route description..." onChange={(event) => {setRouteDescription(event.target.value)}} required ></textarea>
+
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset>
+                        <div className="btn-container">
+                            <button className="btn-save" onClick={handlePost}>Set Route!</button>
+                        </div>
+                    </fieldset>
 
                 </div>
-            </fieldset>
-            
-            <fieldset>
-                <div className="route-info">
-                    <button onClick={handlePost}>Set Route!</button>
-                </div>
-            </fieldset>
+
+            </div>
+
         </form>
     )
 } 
