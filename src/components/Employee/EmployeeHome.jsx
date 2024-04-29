@@ -49,8 +49,10 @@ export const EmployeeHome = ({currentUser}) => {
 
 
     return (
-        <div className="employee-home">
+        <div className="container-employee-home">
+            
             <h2 className="heading">Gym Routes</h2>
+            
             <div className="employee-route-filter">
                 <FilterBar 
                     allRoutes={allRoutes} 

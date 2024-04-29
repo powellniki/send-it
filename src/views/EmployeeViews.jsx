@@ -15,10 +15,10 @@ export const EmployeeViews = ({currentUser}) => {
     return (
         <Routes>
             <Route path="/" element={
-                <>
+                <div className="overlay">
                     <EmployeeNav />
                     <Outlet />
-                </>
+                </div>
             }>
 
                 <Route index element={<EmployeeHome currentUser={currentUser}/>} />
