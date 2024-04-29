@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-basis: 30%;
+    height: 120px;
     border: #32b473 1px dashed;
     border-radius: 10px;
     font-family: Arial, Helvetica, sans-serif;
@@ -30,8 +31,10 @@
         }
 
         .route-details-secondary {
-            flex-direction: column;
             margin-left: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             
             .route-date {
                 color: rgba(162, 41, 248, 0.983);
@@ -41,7 +44,6 @@
             }
             .route-edit {
                 display: flex;
-                padding-top: 10px;
 
                 .btn-edit {
                     margin: 3px;

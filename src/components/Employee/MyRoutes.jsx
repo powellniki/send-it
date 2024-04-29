@@ -14,11 +14,15 @@ export const MyRoutes = ({currentUser}) => {
     }, [currentUser.id])
 
     return (
-        <div className="routes">
+        <div className="container-employee-home">
+
         <h2 className="heading">My Routes</h2>
-            {routesBySetterId.map(route => {
-                return <RouteObject route={route} currentUser={currentUser} key={route.id} />
-            })}
+
+            <div className="routes">
+                {routesBySetterId.map(route => {
+                    return <RouteObject route={route} currentUser={currentUser} key={route.id} />
+                })}
+            </div>
         </div>
     )
 }
