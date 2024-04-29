@@ -24,7 +24,7 @@ export const Login = () => {
             name: user.name,
             isStaff: user.isStaff,
             email: user.email
-          })
+          }) 
         )
 
         navigate("/")
@@ -35,12 +35,19 @@ export const Login = () => {
   }
 
   return (
-    <main className="auth-container">
-      <section>
+  <div className="login-page">
+
+  <h1 className="auth-logo"><span>Send</span>It</h1>
+    
+    <div className="auth-container">
+
+      <section className="auth-content">
+
         <form className="auth-form" onSubmit={handleLogin}>
-          <h1 className="header">Send It!</h1>
-          <h2>Please sign in</h2>
+
+
           <fieldset className="auth-fieldset">
+
             <div>
               <input
                 type="email"
@@ -50,19 +57,30 @@ export const Login = () => {
                 placeholder="Email address"
                 required
                 autoFocus
-              />
+                />
             </div>
+
           </fieldset>
+
           <fieldset className="auth-fieldset">
             <div>
               <button type="submit">Sign in</button>
             </div>
           </fieldset>
+          <section className="register-link">
+            <Link to="/register">Not a member yet?</Link>
+          </section>
         </form>
+
       </section>
-      <section className="register-link">
-        <Link to="/register">Not a member yet?</Link>
-      </section>
-    </main>
+
+      <div className="landing">
+        <h1 className="landing-one">ELEVATE YOUR CLIMBING EXPERIENCE</h1>
+      </div>
+
+
+    </div>
+
+  </div>
   )
 }

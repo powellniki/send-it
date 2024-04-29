@@ -1,0 +1,31 @@
+
+.filter-bar {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+
+    .filter-item {
+        width: 20%;
+        height: 45px;
+        margin: 20px;
+        font-weight: 100;
+        padding-top: 5px;
+        background-color: rgba(162, 41, 248, 0.983);
+        border: none;
+        border-radius: 8px;
+        color: #ffffff; /* White text color */
+        font-family: 'abduction';
+        font-size: 25px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .filter-item:hover {
+        color: #ffffff; /* White text color */
+        font-size: 55px;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    }
+
+
+}

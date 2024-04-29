@@ -7,7 +7,13 @@
 
 .filter-item {
     width: 20%;
-    height: 35px;
-    margin: 10px;
-    padding-left: 5px;
+    height: 45px;
+    margin: 20px;
+    background-color: rgba(162, 41, 248, 0.983);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff; /* White text color */
+    font-family: 'abduction';
+    font-size: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }

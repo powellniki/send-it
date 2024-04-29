@@ -13,16 +13,17 @@ export const MemberViews = ({currentUser}) => {
     return (
         <Routes>
         <Route path="/" element={
-            <>
+            <div className="overlay">
                 <MemberNav />
                 <Outlet />
-            </>
-        }>
-            <Route index element={<Welcome />} />
+            </div>
 
-            <Route path="home">
-                <Route index element={<MemberHome currentUser={currentUser} />} />
-            </Route>
+        }>
+            <Route index element={<MemberHome currentUser={currentUser} />} />
+            {/* <Route index element={<Welcome />} /> */}
+
+            {/* <Route path="home"> */}
+            {/* </Route> */}
 
             <Route path="route">
                 <Route path=":routeId" element={<RouteDetails currentUser={currentUser} />} />
