@@ -1,0 +1,54 @@
+
+.member-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #b7dbc9;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+
+    .member-profile-container {
+        display: flex;
+        align-items: center;
+        height: 400px;
+        width: 700px;
+        border: 1px gray solid;
+        border-radius: 8px;
+        background-color: white;
+
+
+        .member-profile-picture-containter {
+            display: flex;
+            justify-content: center;
+            width: 50%;
+
+            .member-profile-picture {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: gray;
+                border-radius: 100px;
+                width: 150px;
+                height: 150px;
+            }
+        }    
+    
+    
+        .member-profile-information {
+            font-family: 'tahoma';
+
+            .member-name {
+                font-size: 16px;
+                padding-bottom: 10px;
+            }
+            .member-sends {
+                font-size: 14px;
+            }
+        }
+    }
+}

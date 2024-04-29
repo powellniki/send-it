@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-basis: 30%;
-    border: lime 1px dashed;
+    border: #32b473 1px dashed;
     border-radius: 10px;
     font-family: Arial, Helvetica, sans-serif;
     padding: 2px;
@@ -31,23 +31,15 @@
             .route-details-secondary {
                 width: 30%;
                 text-align: right;
-
             }
-
-
         }
+        
         .route-secondary {
             font-size: 12px;
             margin-top: 20px;
         }
-
-
     }
 }
-
-
-
-
 
 
 

@@ -1,0 +1,106 @@
+.edit-route-form {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: #b7dbc9;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    .heading {
+        font-size: 55px;
+        font-family: 'abduction';
+        text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+        padding-top: 50px;
+        margin: 15px 0px 50px 30px;
+        color: #f68732;
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+
+
+        .edit-form {
+            border: gray solid 1px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            width: 90%;
+            height: 90%;
+            font-family: 'tahoma';
+
+
+            .route-info {
+                margin: 5px;
+
+                .form-information {
+                    margin-bottom: 10px;
+                }
+
+                input {
+                    width: 100%;
+                    height: 35px;
+                    padding-left: 5px;
+                    margin-bottom: 5px;
+                    border: 1px solid #ced4da; /* Light gray border */
+                    border-radius: 8px;
+                    font-family: 'tahoma';
+                    font-size: 14px;
+                }
+
+                select {
+                    height: 35px;
+                    width: 25%;
+                    margin-bottom: 5px;
+                    padding-left: 5px;
+                    border-radius: 8px;
+                }
+    
+                textarea {
+                    width: 100%;
+                    height: 70px;
+                    padding-top: 5px;
+                    padding-left: 5px;
+                    margin-bottom: 5px;
+                    margin-right: 10px;
+                    border: 1px solid #ced4da; /* Light gray border */
+                    border-radius: 8px;
+                    font-family: 'tahoma';
+                    font-size: 14px;
+                }
+            }
+
+            .btn-container {
+                display: flex;
+                justify-content: end;
+
+                .btn-save {
+                    background-color: rgba(162, 41, 248, 0.983);
+                    color: #ffffff; /* White text color */
+                    font-family: 'abduction';
+                    width: 15%;
+                    height: 45px;
+                    margin: 20px;
+                    padding-top: 3px;
+                    padding-left: 8px;
+                    font-size: 15px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                    border: none;
+                    border-radius: 8px;
+                }
+                .btn-save:hover {
+                    font-size: 55px;
+                    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+                }
+            }
+
+        }
+    }
+}

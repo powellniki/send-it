@@ -1,11 +1,11 @@
 import { Link, useNavigate } from "react-router-dom"
-import "./navigation.css"
+import "./memberNav.css"
 
 export const MemberNav = () => {
     const navigate = useNavigate()
 
     return (
-        <ul className="navbar">
+        <ul className="member-navbar">
 
             <div className="navbar-logo">
                 <li className="navbar-item">
@@ -44,6 +44,7 @@ export const MemberNav = () => {
                     ""
                 )}
             </div>
+
         </ul>
     )
 }

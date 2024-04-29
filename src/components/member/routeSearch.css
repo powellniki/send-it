@@ -1,15 +1,16 @@
 
-.container-member-home {
+
+.employee-home {
     display: flex;
     flex-direction: column;
     width: 100vw;
     height: 100vh;
     background-color: #b7dbc9;
+    /* background-image: url('/src/components/pictures/free-climbing-wall-vector.png'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
 
     .heading {
         font-size: 75px;
@@ -20,6 +21,7 @@
         color: #f68732;
     }
 
+
     .routes {
         display: flex;
         flex-wrap: wrap;
@@ -28,8 +30,3 @@
     }
 
 }
-
-
-
-
-

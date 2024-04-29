@@ -36,6 +36,7 @@ export const MemberHome = ({currentUser}) => {
         <div className="container-member-home">
 
                 <h2 className="heading">My Routes</h2>
+                
                 <div className="member-route-filter">
                     <MemberFilterBar 
                      allRoutes={allRoutes} 

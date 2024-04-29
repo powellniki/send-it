@@ -1,4 +1,4 @@
-.navbar {
+.member-navbar {
   display: flex;
   flex-wrap: nowrap;
   padding: 0 5px;
@@ -16,7 +16,6 @@
     .logo2 {
       color: #32b473;
     }
-
   }
 
 

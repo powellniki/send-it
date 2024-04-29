@@ -1,0 +1,61 @@
+.employee-navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0 5px;
+    list-style-type: none;
+
+    
+    .navbar-logo {
+        font-size: 25px;
+        font-family: 'abduction';
+        padding: 10px;
+
+
+        .logo1 {
+            color: #b7dbc9;
+        }
+        .logo2 {
+            color: #32b473;
+        }
+
+    }
+
+    .navbar-elements {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: auto;
+        padding: 10px;
+        font-size: 20px;
+
+
+        .navbar-item {
+
+            .nav-text {
+
+            }
+            .nav-new-route {
+
+            }
+        }
+    }
+
+    .navbar-logout {
+        font-size: 20px;
+        background-color: rgba(162, 41, 248, 0.983);
+        border-radius: 25px;
+        padding: 5px;
+        margin-right: 5px;
+
+    }
+    a {
+        text-decoration: none;
+        color: #32b473;
+      
+        font-family: 'abduction';
+        letter-spacing: -0.5px;
+      }
+      
+      a:hover {
+        color: seagreen;
+      }
+}

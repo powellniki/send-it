@@ -1,0 +1,64 @@
+.route-item-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 30%;
+    height: 120px;
+    border: #32b473 1px dashed;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2px;
+    margin: 5px;
+    background-color: #f3f7f1;
+
+    .route-item{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 5px;
+
+        .route-details-primary {
+            width: 80%;
+
+            .route-name {
+                font-family: 'abduction';
+                color: #32b473;
+                font-size: 18px;
+            }
+
+            .route-info {
+                font-family: 'tahoma';
+            }
+        }
+
+        .route-details-secondary {
+            margin-left: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            .route-date {
+                color: rgba(162, 41, 248, 0.983);
+                font-weight: bold;
+                display: flex;
+                justify-content: end;
+            }
+            .route-edit {
+                display: flex;
+
+                .btn-edit {
+                    margin: 3px;
+                    font-family: 'tahoma';
+                }
+                .btn-delete {
+                    margin: 3px;
+                    font-family: 'tahoma';
+                }
+            }
+        }
+    }
+
+    .route-link {
+        text-decoration: none;
+        color: #32b473;
+    }
+}
