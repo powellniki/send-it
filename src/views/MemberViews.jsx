@@ -27,7 +27,6 @@ export const MemberViews = ({currentUser}) => {
 
             <Route path="route">
                 <Route path=":routeId" element={<RouteDetails currentUser={currentUser} />} />
-                <Route path=":routeId/comment" element={<>this will be a comment form</>} />
                 <Route path=":routeId/tick" element={<RouteTickForm currentUser={currentUser} />} />
             </Route>
 

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import './memberRouteObject.css'
+// import { StarRating } from "./StarRating.jsx"
 
 
 export const MemberRouteObject = ({route}) => {
@@ -29,7 +30,7 @@ export const MemberRouteObject = ({route}) => {
                 </div>
 
                 <div className="route-secondary">
-                    <span>{route.likes?.length} likes / </span><span>{route.ticks?.length} ticks</span>
+                    {/* <StarRating /> */}
                 </div>
 
             </section>
