@@ -6,6 +6,8 @@ import { deleteTick, postTicks } from "../../services/tickServices.js"
 import { getTicksByRouteId } from "../../services/tickServices.js"
 import { getCommentsbyRouteId, postComment } from "../../services/commentService.js"
 import { deleteToDo, getToDosByRouteId, postToDo } from "../../services/toDoServices.js"
+import { AverageStarRating } from "./AverageStarRating.jsx"
+import './starRating.css'
 import './routeDetails.css'
 
 
@@ -25,6 +27,7 @@ export const RouteDetails = ({currentUser}) => {
     const [ticksExpandRoute, setTicksExpandRoute] = useState([])
     const [todosExpandRoute, setTodosExpandRoute] = useState([])
     const [commentsExpandRoute, setCommentsExpandRoute] = useState([])
+    const [averageRating, setAverageRating] = useState(0)
     const [comment, setComment] = useState("")
     const [update, setUpdate] = useState(false)
 
@@ -59,6 +62,36 @@ export const RouteDetails = ({currentUser}) => {
             setCommentsExpandRoute(commentsArray)
         })
     }
+    
+    const findAverageRating = () => {
+        let totalRating = 0
+        let numberOfTicks = ticksExpandRoute.length
+
+        for (tick of ticksExpandRoute) {
+            totalRating += tick.rating
+        }
+        return totalRating / numberOfTicks
+    }
+
+
+    useEffect(() => {
+        let totalRating = 0
+        let numberOfTicks = ticksExpandRoute.length
+        
+        if (numberOfTicks > 0 ) {
+            for (const tick of ticksExpandRoute) {
+                totalRating += tick.rating
+            } 
+            setAverageRating(totalRating / numberOfTicks)
+        } else {
+            setAverageRating(0)
+        }
+        
+    },[ticksExpandRoute])
+    
+
+
+
     useEffect(() => {
         getAndSetRoute()
         getLikesForRoute()
@@ -66,6 +99,7 @@ export const RouteDetails = ({currentUser}) => {
         getCommentsForRoute()
         getToDosForRoute()
     },[currentUser, update])
+
 
 
     // functions for adding likes, ticks, to-dos
@@ -82,14 +116,6 @@ export const RouteDetails = ({currentUser}) => {
             routeId: route.id
         }
         postLikes(newLike).then(setUpdate(!update))
-    }
-    const handleTick = () => {
-        const newTick = {
-            date: setDate(),
-            userId: currentUser.id,
-            routeId: route.id
-        }
-        postTicks(newTick).then(setUpdate(!update))
     }
 
     const handleCommentSubmit = () => {
@@ -116,10 +142,7 @@ export const RouteDetails = ({currentUser}) => {
         const foundLike = likesExpandRoute.find(like => like.userId === currentUser.id)
         deleteLike(foundLike.id).then(setUpdate(!update))
     }
-    const deleteMemberTick = () => {
-        const foundTick = ticksExpandRoute.find(tick => tick.userId === currentUser.id)
-        deleteTick(foundTick.id).then(setUpdate(!update))
-    }
+
 
 
 
@@ -137,20 +160,28 @@ export const RouteDetails = ({currentUser}) => {
                     </div>
 
                     <div className="route-information">
+
+                        <div className="star-rating-container">
+                            <div className="rating-item">
+                                <AverageStarRating averageRating={averageRating}/>
+                            </div>
+                            <div className="rating-value"> &nbsp; {averageRating}</div>
+                        </div>
+
                         <div className="route-info">Type: {route.type?.name}</div>
                         <div className="route-info">Grade: {route.grade?.name}</div>
                         <div className="route-info">Style: {route.style?.name}</div>
                         <div className="route-info">Setter: {route.user?.fullName}</div>
                         <div className="route-info">Date Set: {route.dateSet}</div>
                         <div className="route-info">Description: {route.description}</div>
+
                     </div>
                 </div>
 
                 <div className="route-buttons">
                     {likesExpandRoute.some(like => like.userId === currentUser.id) ? <button onClick={deleteMemberLike}>unlike</button> : <button onClick={handleLike}>Like</button>}
                     {todosExpandRoute.some(todo => todo.userId === currentUser.id) ? <button onClick={deleteMemberToDo}>✓ To-Do</button> : <button onClick={handleToDo}>+ To-Do</button>}
-                    {ticksExpandRoute.some(tick => tick.userId === currentUser.id) ? <button onClick={deleteMemberTick}>Untick</button> : <button onClick={handleTick}>Tick</button>}
-                    {/* <button onClick={navigateToComment}>comment</button> */}
+                    <button onClick={() => navigate(`/route/${route.id}/tick`)}>Tick</button>
                 </div>
 
             </div>
