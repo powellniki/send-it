@@ -17,7 +17,9 @@ export const MemberProfile = ({currentUser}) => {
         <div className="member-profile">
             <div className="member-profile-container">
                 <div className="member-profile-picture-containter">
-                    <div className="member-profile-picture">picture</div>
+                    <div className="member-profile-picture">
+                        <img src='https://img.freepik.com/premium-vector/rock-climbing-logo_617585-1697.jpg'/>
+                    </div>
                 </div>
                 <div className="member-profile-information">
                     <div className="member-name">{member?.fullName}</div>

@@ -138,10 +138,10 @@ export const RouteDetails = ({currentUser}) => {
         const foundToDo = todosExpandRoute.find(todo => todo.userId === currentUser.id)
         deleteToDo(foundToDo.id).then(setUpdate(!update))
     }
-    const deleteMemberLike = () => {
-        const foundLike = likesExpandRoute.find(like => like.userId === currentUser.id)
-        deleteLike(foundLike.id).then(setUpdate(!update))
-    }
+    // const deleteMemberLike = () => {
+    //     const foundLike = likesExpandRoute.find(like => like.userId === currentUser.id)
+    //     deleteLike(foundLike.id).then(setUpdate(!update))
+    // }
 
 
 
@@ -151,9 +151,9 @@ export const RouteDetails = ({currentUser}) => {
 
             <h2 className="heading">{route.name}</h2>
 
-            <div className="route-details">
-
-                <div className="details-container">
+            <div className="route-details-container">
+                
+                <div className="route-details">
 
                     <div className="route-image">
                         <img src={route.img}  />
@@ -168,24 +168,26 @@ export const RouteDetails = ({currentUser}) => {
                             <div className="rating-value"> &nbsp; {averageRating}</div>
                         </div>
 
-                        <div className="route-info">Type: {route.type?.name}</div>
                         <div className="route-info">Grade: {route.grade?.name}</div>
+                        <div className="route-info">Type: {route.type?.name}</div>
                         <div className="route-info">Style: {route.style?.name}</div>
-                        <div className="route-info">Setter: {route.user?.fullName}</div>
-                        <div className="route-info">Date Set: {route.dateSet}</div>
                         <div className="route-info">Description: {route.description}</div>
+                        <div className="route-info">Setter: {route.user?.fullName}</div>
 
                     </div>
-                </div>
 
-                <div className="route-buttons">
-                    {likesExpandRoute.some(like => like.userId === currentUser.id) ? <button onClick={deleteMemberLike}>unlike</button> : <button onClick={handleLike}>Like</button>}
-                    {todosExpandRoute.some(todo => todo.userId === currentUser.id) ? <button onClick={deleteMemberToDo}>✓ To-Do</button> : <button onClick={handleToDo}>+ To-Do</button>}
-                    <button onClick={() => navigate(`/route/${route.id}/tick`)}>Tick</button>
                 </div>
 
             </div>
             
+            <div className="route-buttons-container">
+                <div className="route-buttons">
+                    {/* {likesExpandRoute.some(like => like.userId === currentUser.id) ? <button onClick={deleteMemberLike}>unlike</button> : <button onClick={handleLike}>Like</button>} */}
+                    {todosExpandRoute.some(todo => todo.userId === currentUser.id) ? <button onClick={deleteMemberToDo}>✓ To-Do</button> : <button onClick={handleToDo}>+ To-Do</button>}
+                    <button onClick={() => navigate(`/route/${route.id}/tick`)}>Tick</button>
+                </div>
+            </div>
+
             <div className="route-activity">
 
                 <div className="activity-container">
@@ -194,7 +196,12 @@ export const RouteDetails = ({currentUser}) => {
                         {ticksExpandRoute.map(tick => {
                             return (
                                 <div key={tick.id} className="activity-item">
-                                    <div>{tick.user?.fullName} climbed this route on {tick.date}</div>
+                                    <div className="tick-username">{tick.user?.fullName}</div>
+                                    <div className="tick-info">
+                                        <div className="tick-date">{tick.date} -- </div>
+                                        <div className="tick-ascent">&nbsp;{tick.leadStatus?.name}</div>
+                                        <div className="tick-notes">{tick.notes}</div>
+                                    </div>
                                 </div>
                             )
                         })}

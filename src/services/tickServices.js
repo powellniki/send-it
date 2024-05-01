@@ -1,7 +1,7 @@
 
 
 export const getTicksByRouteId = (routeId) => {
-    return fetch(`http://localhost:8088/ticks?routeId=${routeId}&_expand=route&_expand=user`).then((res) => res.json())
+    return fetch(`http://localhost:8088/ticks?routeId=${routeId}&_expand=route&_expand=user&_expand=leadStatus`).then((res) => res.json())
 }
 
 export const getLeadStatus = () => {
