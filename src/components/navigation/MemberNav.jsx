@@ -10,14 +10,16 @@ export const MemberNav = () => {
             <div className="navbar-logo">
                 <li className="navbar-item">
                     <div className="navbar-title">
-                        <span className="logo1">send</span><span className="logo2">it</span>
+                        <Link className="nav-text" to="/">
+                            <span className="logo1">send</span><span className="logo2">it</span>
+                        </Link>
                     </div>
                 </li>
             </div>
 
             <div className="navbar-elements">
                 <li className="navbar-item">
-                    <Link className="nav-text" to="/">myroutes/</Link>
+                    <Link className="nav-text" to="myroutes">myroutes/</Link>
                 </li>
                 <li className="navbar-item">
                     <Link className="nav-text" to="myprofile">profile/</Link>

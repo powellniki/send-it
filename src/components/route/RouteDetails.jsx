@@ -156,7 +156,7 @@ export const RouteDetails = ({currentUser}) => {
                 <div className="details-container">
 
                     <div className="route-image">
-                        <div className="image">route image</div>
+                        <img src={route.img}  />
                     </div>
 
                     <div className="route-information">

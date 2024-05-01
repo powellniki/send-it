@@ -6,6 +6,7 @@ import { RouteDetails } from "../components/route/RouteDetails.jsx"
 import { RouteTickForm } from "../components/route/RouteTickForm.jsx"
 import { MemberProfile } from "../components/member/MemberProfile.jsx"
 import { RouteSearch } from "../components/member/RouteSearch.jsx"
+import { MemberRoutes } from "../components/member/MemberRoutes.jsx"
 
 
 export const MemberViews = ({currentUser}) => {
@@ -18,12 +19,12 @@ export const MemberViews = ({currentUser}) => {
                 <Outlet />
             </div>
 
-        }>
-            <Route index element={<MemberHome currentUser={currentUser} />} />
-            {/* <Route index element={<Welcome />} /> */}
+}>
+            <Route index element={<MemberHome currentUser={currentUser}/>}/>
+            
+            <Route path="myroutes" element={<MemberRoutes currentUser={currentUser} />} />
 
-            {/* <Route path="home"> */}
-            {/* </Route> */}
+            <Route path="search" element={<RouteSearch currentUser={currentUser}/>} />
 
             <Route path="route">
                 <Route path=":routeId" element={<RouteDetails currentUser={currentUser} />} />
@@ -33,7 +34,6 @@ export const MemberViews = ({currentUser}) => {
             <Route path="myprofile" element={<MemberProfile currentUser={currentUser}/>} />
                 <Route path="edit" element={<>this is where to edit member profile</>} />
 
-            <Route path="search" element={<RouteSearch currentUser={currentUser}/>} />
 
             
 

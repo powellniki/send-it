@@ -31,7 +31,7 @@ return (
 
         <button className="filter-item" onClick={handleSent}>Ticks</button>
         <button className="filter-item" onClick={handleToDo}>To-Do's</button>
-        <button className="filter-item" onClick={handleLikes}>Liked</button>
+        {/* <button className="filter-item" onClick={handleLikes}>Liked</button> */}
 
         {/* STRETCH GOAL */}
         {/* <button>Saved</button> */}
