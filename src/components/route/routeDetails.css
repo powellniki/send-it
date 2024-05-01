@@ -50,6 +50,12 @@
             .route-info {
                 font-family: 'tahoma';
             }
+
+            .star-rating-container {
+                display: flex;
+                flex-wrap: wrap;
+                
+            }
         }
 
         .route-buttons {

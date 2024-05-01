@@ -6,9 +6,9 @@ import { deleteTick, postTicks } from "../../services/tickServices.js"
 import { getTicksByRouteId } from "../../services/tickServices.js"
 import { getCommentsbyRouteId, postComment } from "../../services/commentService.js"
 import { deleteToDo, getToDosByRouteId, postToDo } from "../../services/toDoServices.js"
+import { AverageStarRating } from "./AverageStarRating.jsx"
 import './starRating.css'
 import './routeDetails.css'
-import { AverageStarRating } from "./AverageStarRating.jsx"
 
 
 const setDate = () => {
@@ -62,6 +62,7 @@ export const RouteDetails = ({currentUser}) => {
             setCommentsExpandRoute(commentsArray)
         })
     }
+    
     const findAverageRating = () => {
         let totalRating = 0
         let numberOfTicks = ticksExpandRoute.length
@@ -72,7 +73,6 @@ export const RouteDetails = ({currentUser}) => {
         return totalRating / numberOfTicks
     }
 
-    
 
     useEffect(() => {
         let totalRating = 0
@@ -160,8 +160,14 @@ export const RouteDetails = ({currentUser}) => {
                     </div>
 
                     <div className="route-information">
-                        <AverageStarRating averageRating={averageRating}/>
-                        <div>average rating: {averageRating}</div>
+
+                        <div className="star-rating-container">
+                            <div className="rating-item">
+                                <AverageStarRating averageRating={averageRating}/>
+                            </div>
+                            <div className="rating-value"> &nbsp; {averageRating}</div>
+                        </div>
+
                         <div className="route-info">Type: {route.type?.name}</div>
                         <div className="route-info">Grade: {route.grade?.name}</div>
                         <div className="route-info">Style: {route.style?.name}</div>

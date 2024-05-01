@@ -23,6 +23,11 @@
             .route-details-primary {
                 width: 60%;
 
+                .star-rating-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
                 .route-name {
                     font-family: 'abduction';
                 }
