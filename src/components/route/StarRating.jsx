@@ -10,6 +10,7 @@ export const StarRating = ({rating, setRating}) => {
 
     return (
         <div className="star-rating">
+            
         {[1, 2, 3, 4, 5].map((star, index) => {
                 const currentRating = index + 1
                 return (

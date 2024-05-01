@@ -30,7 +30,7 @@ export const MemberRouteObject = ({route}) => {
                 </div>
 
                 <div className="route-secondary">
-                    {/* <StarRating /> */}
+                    {/* <StarRating /> */} 
                 </div>
 
             </section>

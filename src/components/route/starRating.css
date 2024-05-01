@@ -1,4 +1,4 @@
-.star-rating {
+/* .star-rating {
 
     input[type=radio] {
         display: none;
@@ -6,5 +6,15 @@
     
     .star {
         cursor: pointer;
+        color: #e4e5e9;
     }
+} */
+
+.star-rating input[type=radio] {
+    display: none;
+}
+
+.star-rating .star {
+    cursor: pointer;
+    color: #e4e5e9;
 }

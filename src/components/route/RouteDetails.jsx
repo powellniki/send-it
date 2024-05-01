@@ -8,6 +8,7 @@ import { getCommentsbyRouteId, postComment } from "../../services/commentService
 import { deleteToDo, getToDosByRouteId, postToDo } from "../../services/toDoServices.js"
 import './starRating.css'
 import './routeDetails.css'
+import { AverageStarRating } from "./AverageStarRating.jsx"
 
 
 const setDate = () => {
@@ -71,6 +72,7 @@ export const RouteDetails = ({currentUser}) => {
         return totalRating / numberOfTicks
     }
 
+    
 
     useEffect(() => {
         let totalRating = 0
@@ -82,7 +84,7 @@ export const RouteDetails = ({currentUser}) => {
             } 
             setAverageRating(totalRating / numberOfTicks)
         } else {
-            setAverageRating("no ratings yet")
+            setAverageRating(0)
         }
         
     },[ticksExpandRoute])
@@ -97,6 +99,8 @@ export const RouteDetails = ({currentUser}) => {
         getCommentsForRoute()
         getToDosForRoute()
     },[currentUser, update])
+
+
 
     // functions for adding likes, ticks, to-dos
     const handleToDo = () => {
@@ -138,10 +142,7 @@ export const RouteDetails = ({currentUser}) => {
         const foundLike = likesExpandRoute.find(like => like.userId === currentUser.id)
         deleteLike(foundLike.id).then(setUpdate(!update))
     }
-    // const deleteMemberTick = () => {
-    //     const foundTick = ticksExpandRoute.find(tick => tick.userId === currentUser.id)
-    //     deleteTick(foundTick.id).then(setUpdate(!update))
-    // }
+
 
 
 
@@ -159,6 +160,7 @@ export const RouteDetails = ({currentUser}) => {
                     </div>
 
                     <div className="route-information">
+                        <AverageStarRating averageRating={averageRating}/>
                         <div>average rating: {averageRating}</div>
                         <div className="route-info">Type: {route.type?.name}</div>
                         <div className="route-info">Grade: {route.grade?.name}</div>
@@ -166,6 +168,7 @@ export const RouteDetails = ({currentUser}) => {
                         <div className="route-info">Setter: {route.user?.fullName}</div>
                         <div className="route-info">Date Set: {route.dateSet}</div>
                         <div className="route-info">Description: {route.description}</div>
+
                     </div>
                 </div>
 

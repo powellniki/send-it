@@ -1,0 +1,13 @@
+
+.average-star-rating {
+    /* Ensure that the stars are displayed inline */
+    display: inline-block;
+    width: 100%;
+
+}
+
+/* Adjust the color of the stars */
+.star {
+    color: #e4e5e9;
+}
+
