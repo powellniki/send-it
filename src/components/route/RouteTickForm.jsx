@@ -15,6 +15,7 @@ export const RouteTickForm = ({currentUser}) => {
     const [note, setNote] = useState("")
     const [rating, setRating] = useState(0)
     const [selectedDate, setSelectedDate] = useState("")
+    // const [formattedDate, setformattedDate] = useState("")
 
 
     const {routeId} = useParams()
@@ -45,11 +46,10 @@ export const RouteTickForm = ({currentUser}) => {
     
 
 
-    // const handleDateChange = (event) => {
-    //     const [year, month, day] = event.target.value.split('-')
-    //     const formattedDate = `${month}/${day}/${year}`
-    //     setSelectedDate(formattedDate)
-    // }
+    const formatDate = (dateString) => {
+        const [year, month, day] = dateString.split('-')
+        return `${month}-${day}-${year}`
+    }
 
 
 
@@ -57,7 +57,7 @@ export const RouteTickForm = ({currentUser}) => {
         event.preventDefault()
 
         const newTick = {
-            date: selectedDate,
+            date: formatDate(selectedDate),
             userId: currentUser.id,
             routeId: parseInt(routeId),
             ascent: parseInt(ascent),
