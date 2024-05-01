@@ -4,6 +4,7 @@
     display: flex;
     flex: 1;
     flex-direction: column;
+    align-items: center;
     width: 100vw;
     background-color: #b7dbc9;
 
@@ -13,7 +14,7 @@
         font-family: 'abduction';
         text-shadow: 0 0 10px rgba(0, 0, 0, 1);
         padding-top: 50px;
-        margin: 15px 0px 100px 30px;
+        margin: 15px 0px 50px 30px;
         color: #f68732;
         
     }
@@ -21,30 +22,33 @@
     .route-details {
         display: flex;
         flex-direction: column;
+        width: 80%;
 
         .details-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: row;
+            /* justify-content: center; */
             border: 1px rgb(183, 181, 181) solid;
             padding: 35px;
-            margin: auto;
+            margin: 0 0 25px 0;
             border-radius: 8px;
             background-color: #ffffff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
             .route-image {
-    
-                .image {
-                    background-color: gray;
-                    height: 400px;
-                    width: 300px;
+                display: flex;
+                justify-content: center;
+                /* background-color: #32b473; */
+                width: auto;
+
+                img {
+                    height: 500px;
                 }
             }
         }
 
         .route-information {
-            width: 500px;
+            width: auto;
             padding: 20px;
 
             .route-info {
@@ -88,7 +92,8 @@
     }
 
     .route-activity {
-        margin: 40px 100px;
+        width: 80%;
+        margin: 25px 0 50px 0;
         border: 1px rgb(183, 181, 181) solid;
         background-color: #ffffff;
         border-radius: 8px;

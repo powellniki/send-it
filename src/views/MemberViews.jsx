@@ -25,7 +25,6 @@ export const MemberViews = ({currentUser}) => {
             <Route path="myroutes" element={<MemberRoutes currentUser={currentUser} />} />
 
             <Route path="search" element={<RouteSearch currentUser={currentUser}/>} />
-            {/* <Route index element={<Welcome />} /> */}
 
             <Route path="route">
                 <Route path=":routeId" element={<RouteDetails currentUser={currentUser} />} />

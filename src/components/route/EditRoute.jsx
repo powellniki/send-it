@@ -101,7 +101,7 @@ export const EditRoute = ({currentUser}) => {
                             <div className="form-information">Route Name: </div>
                             <input type="text" name="name" value={route?.name} onChange={handleInputChange} required></input>
                         </div>
-                    </fieldset>ß
+                    </fieldset>
 
                     <fieldset>
                         <div className="route-info">
