@@ -1,8 +1,8 @@
-import { Link, useParams } from "react-router-dom"
-import './memberRouteObject.css'
+import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { getTicksByRouteId } from "../../services/tickServices.js"
 import { AverageStarRating } from "./AverageStarRating.jsx"
+import './memberRouteObject.css'
 import './starRating.css'
 
 
@@ -60,16 +60,21 @@ export const MemberRouteObject = ({route}) => {
 
                     <div className="route-details-primary">
 
+                        <div className="image-container">
+                            {/* <img src={route.img}/> */}
+                        </div>
+
+
                         <div className="star-rating-container">
                             <div className="rating-item">
                                 <AverageStarRating averageRating={averageRating}/>
                             </div>
-                            <div className="rating-value"> &nbsp; {averageRating}</div>
                         </div>
 
                         <div className="route-info route-name">
                             <header>{route.name}</header>
                         </div>
+                        
                         <div className="route-info">Grade: {route.grade?.name} </div>
                         <div className="route-info">Setter: {route.user?.fullName}</div>
                     </div>

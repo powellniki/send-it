@@ -8,11 +8,7 @@ import './memberHome.css'
 export const MemberHome = ({currentUser}) => {
 
     const [allRoutes, setAllRoutes] = useState([])
-    // const [selectedType, setSelectedType] = useState('')
-    // const [selectedGrade, setSelectedGrade] = useState('')
-    // const [selectedStyle, setSelectedStyle] = useState('')
-    // const [selectedSetter, setSelectedSetter] = useState('')
-    // const [displayedRoutes, setDisplayedRoutes] = useState([])
+
 
     const getAndSetAllRoutes = () => {
         getAllRoutes().then(routesArray => {
@@ -24,26 +20,6 @@ export const MemberHome = ({currentUser}) => {
         getAndSetAllRoutes()
     }, [])
 
-
-    // useEffect(() => {
-    //     let filteredRoutes = allRoutes
-
-    //         if (parseInt(selectedType) > 0) {
-    //             filteredRoutes = filteredRoutes.filter(route => route.typeId === parseInt(selectedType))
-    //         }
-    //         if (parseInt(selectedGrade) > 0) {
-    //             filteredRoutes = filteredRoutes.filter(route => route.gradeId === parseInt(selectedGrade))
-    //         }
-    //         if(parseInt(selectedStyle) > 0) {
-    //             filteredRoutes = filteredRoutes.filter(route => route.styleId === parseInt(selectedStyle))
-    //         }
-    //         if (parseInt(selectedSetter) > 0) {
-    //             filteredRoutes = filteredRoutes.filter(route => route.userId === parseInt(selectedSetter))
-    //         }
-
-    //     setDisplayedRoutes(filteredRoutes)
-
-    // }, [allRoutes, selectedType, selectedGrade, selectedStyle, selectedSetter])
 
 
 
