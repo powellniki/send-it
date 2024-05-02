@@ -49,9 +49,11 @@ export const RouteSearch = ({currentUser}) => {
 
 
     return (
-        <div className="employee-home">
+        <div className="route-finder-container">
+
             <h2 className="heading">Gym Routes</h2>
-            <div className="employee-route-filter">
+            
+            <div className="member-route-filter">
                 <FilterBar 
                     allRoutes={allRoutes} 
                     setSelectedType={setSelectedType}

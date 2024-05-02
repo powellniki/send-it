@@ -1,10 +1,14 @@
 
-.employee-home {
+.route-finder-container {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    background-color: #ffffff;
+    background-image: url('https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-14_856985d9.jpeg');
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 
 
     .heading {
@@ -14,7 +18,9 @@
         margin: 55px auto 15px auto;
         color: #f68732;
     }
+    .member-route-filter {
 
+    }
 
     .routes {
         display: flex;
