@@ -3,8 +3,9 @@
     flex-wrap: wrap;
     flex-basis: 22%;
     height: 250px;
-    border: rgba(253, 217, 100);
-    background-color: rgb(162, 41, 248);
+    border-right: rgba(253, 217, 100) solid 1px;
+    border-bottom: rgba(253, 217, 100) solid 1px;
+    background: linear-gradient(to right,#370063 5%, #280148 100%);
     box-shadow:  3px 3px 4px rgba(253, 217, 100, 0.75);
     border-radius: 8px;
     font-family: 'tahoma';
@@ -38,7 +39,8 @@
                     font-size: 20px;
 
                     .rating-item {
-                        padding: 5px;
+                        padding-left: 10px;
+                        padding-top: 5px;
                     }
                 }
 
@@ -48,7 +50,8 @@
                     color: #51ed6e;
                     text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
                     font-size: 30px;
-                    padding-left: 5px;
+                    padding-left: 10px;
+                    padding-top: 5px;
                 }
 
                 .route-info {

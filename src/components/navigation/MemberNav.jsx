@@ -19,13 +19,13 @@ export const MemberNav = () => {
 
             <div className="navbar-elements">
                 <li className="navbar-item">
-                    <Link className="nav-text" to="myroutes">myroutes</Link>
+                    <Link className="nav-text" to="myroutes">myroutes/</Link>
                 </li>
                 <li className="navbar-item">
-                    <Link className="nav-text" to="myprofile">profile</Link>
+                    <Link className="nav-text" to="myprofile">profile/</Link>
                 </li>
                 <li className="navbar-item">
-                    <Link className="nav-text" to="search">routefinder</Link>
+                    <Link className="nav-text" to="search">routefinder/</Link>
                 </li>
             </div>
 
