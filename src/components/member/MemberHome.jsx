@@ -25,11 +25,9 @@ export const MemberHome = ({currentUser}) => {
 
 
     return (
-        <div className="employee-home">
+        <div className="container-member-home">
             <h2 className="heading">Gym Routes</h2>
-            <div className="employee-route-filter">
 
-            </div>
             <div className="routes">
                     {allRoutes.map(route => {
                         return <MemberRouteObject route={route} getAndSetAllRoutes={getAndSetAllRoutes} currentUser={currentUser} key={route.id} allRoutes={allRoutes}/>   

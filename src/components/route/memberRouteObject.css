@@ -3,8 +3,9 @@
     flex-wrap: wrap;
     flex-basis: 22%;
     height: 250px;
-    border: #81938a 1px solid;
-    box-shadow:  6px 4px 1px rgba(194, 124, 244, 0.918);
+    border: rgba(253, 217, 100);
+    background-color: rgb(162, 41, 248);
+    box-shadow:  3px 3px 4px rgba(253, 217, 100, 0.75);
     border-radius: 8px;
     font-family: 'tahoma';
     margin: 15px;
@@ -27,12 +28,8 @@
                 
                 .image-container {
                     width: 100%;
-                    height: 50%;
-                    
-                    img {
-                        width: 100%;
-                        height: fit-content;
-                    }
+                    height: 60%;
+                    background-size: cover;
                 }
 
                 .star-rating-container {
@@ -46,18 +43,18 @@
                 }
 
                 .route-name {
-                    font-family: 'abduction';
-                    color: #51ed6e;
-                    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
-                    font-size: 20px;
+                    font-family: 'rocket';
                     font-weight: 100;
+                    color: #51ed6e;
+                    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+                    font-size: 30px;
                     padding-left: 5px;
                 }
 
                 .route-info {
                     padding-left: 5px;
                     color: #51ed6e;
-                    font-size: 12px;
+                    font-size: 16px;
                 }
             }
 

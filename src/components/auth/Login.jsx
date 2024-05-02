@@ -36,8 +36,6 @@ export const Login = () => {
 
   return (
   <div className="login-page">
-
-  <h1 className="auth-logo"><span>Send</span>It</h1>
     
     <div className="auth-container">
 
@@ -75,7 +73,8 @@ export const Login = () => {
       </section>
 
       <div className="landing">
-        <h1 className="landing-one">ELEVATE YOUR CLIMBING EXPERIENCE</h1>
+        <h1 className="landing-one">elevate your climbing</h1>
+        <h1 className="auth-logo"><span>send</span>it</h1>
       </div>
 
 

@@ -154,90 +154,101 @@ export const RouteDetails = ({currentUser}) => {
             <div className="route-details-container">
                 
                 <div className="route-details">
+                
 
-                    <div className="route-image">
-                        <img src={route.img}  />
-                    </div>
+                    <div className="route-first">
 
-                    <div className="route-information">
+                        <div className="route-image">
+                            <img src={route.img}  />
+                        </div>
 
-                        <div className="star-rating-container">
-                            <div className="rating-item">
-                                <AverageStarRating averageRating={averageRating}/>
+                        <div className="route-information">
+                            <div className="star-rating-container">
+                                <div className="rating-item">
+                                    <AverageStarRating averageRating={averageRating}/>
+                                </div>
+                                {/* <div className="rating-value"> &nbsp; {averageRating}</div> */}
                             </div>
-                            <div className="rating-value"> &nbsp; {averageRating}</div>
+
+                            <div className="route-info-container">
+                                <div className="route-info">Grade: {route.grade?.name}</div>
+                                <div className="route-info">Type: {route.type?.name}</div>
+                                <div className="route-info">Style: {route.style?.name}</div>
+                                <div className="route-info route-description">Description: {route.description}</div>
+                                <div className="route-info route-setter">Setter: {route.user?.fullName}</div>
+                            </div>
                         </div>
 
-                        <div className="route-info">Grade: {route.grade?.name}</div>
-                        <div className="route-info">Type: {route.type?.name}</div>
-                        <div className="route-info">Style: {route.style?.name}</div>
-                        <div className="route-info">Description: {route.description}</div>
-                        <div className="route-info">Setter: {route.user?.fullName}</div>
-
                     </div>
 
-                </div>
 
-            </div>
-            
-            <div className="route-buttons-container">
-                <div className="route-buttons">
-                    {/* {likesExpandRoute.some(like => like.userId === currentUser.id) ? <button onClick={deleteMemberLike}>unlike</button> : <button onClick={handleLike}>Like</button>} */}
-                    {todosExpandRoute.some(todo => todo.userId === currentUser.id) ? <button onClick={deleteMemberToDo}>✓ To-Do</button> : <button onClick={handleToDo}>+ To-Do</button>}
-                    <button onClick={() => navigate(`/route/${route.id}/tick`)}>Tick</button>
-                </div>
-            </div>
-
-            <div className="route-activity">
-
-                <div className="activity-container">
-                    <h4>Activity: </h4>
-                    <div className="activities">
-                        {ticksExpandRoute.map(tick => {
-                            return (
-                                <div key={tick.id} className="activity-item">
-                                    <div className="tick-username">{tick.user?.fullName}</div>
-                                    <div className="tick-info">
-                                        <div className="tick-date">{tick.date} -- </div>
-                                        <div className="tick-ascent">&nbsp;{tick.leadStatus?.name}</div>
-                                        <div className="tick-notes">{tick.notes}</div>
-                                    </div>
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
-
-                <div className="comments-container">
-                    <h4>Comments:</h4>
-                    <div className="comments">
-                        {commentsExpandRoute.map(comment => {
-                            return (
-                                <div key={comment.id} className="comment-item">
-                                    <div className="comment-user-name">{comment.user?.fullName}</div>
-                                    <div className="comment-user-comment">{comment.comment}<span> - {comment.date}</span></div>
-                                </div>
-                            )
-                        })}
-                    </div>
-                    <div className="comment-input">
-                        <textarea
-                            className="comment-text-area"
-                            type="text"
-                            name= "comment"
-                            placeholder="leave a comment..."
-                            value = {comment}
-                            onChange={(event) => {setComment(event.target.value)}}
-                            required
-                        ></textarea>
-                        <div className="btn-comment-container">
-                            <button className="btn-comment" onClick={handleCommentSubmit}>➲</button>
+                    <div className="route-second">
+                        <div className="route-buttons-container">
+                            <div className="route-buttons">
+                                {/* {likesExpandRoute.some(like => like.userId === currentUser.id) ? <button onClick={deleteMemberLike}>unlike</button> : <button onClick={handleLike}>Like</button>} */}
+                                {todosExpandRoute.some(todo => todo.userId === currentUser.id) ? <button onClick={deleteMemberToDo}>nvm</button> : <button onClick={handleToDo}>to-do</button>}
+                                <button onClick={() => navigate(`/route/${route.id}/tick`)}>Tick</button>
+                            </div>
                         </div>
                     </div>
+
+
+                    <div className="route-third">
+                        
+                        <div className="activity-container">
+                            <h4>Activity: </h4>
+                            <div className="activities">
+                                {ticksExpandRoute.map(tick => {
+                                    return (
+                                        <div key={tick.id} className="activity-item">
+                                            <div className="tick-username">{tick.user?.fullName}</div>
+                                            <div className="tick-info">
+                                                <div className="tick-date">{tick.date} -- </div>
+                                                <div className="tick-ascent">&nbsp;{tick.leadStatus?.name}</div>
+                                                <div className="tick-notes">{tick.notes}</div>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+
+                        <div className="comments-container">
+                            <h4>Comments:</h4>
+                            <div className="comments">
+                                {commentsExpandRoute.map(comment => {
+                                    return (
+                                        <div key={comment.id} className="comment-item">
+                                            <div className="comment-user-name">{comment.user?.fullName}</div>
+                                            <div className="comment-user-comment">{comment.comment}<span> - {comment.date}</span></div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+
+                            <div className="comment-input">
+                                <textarea
+                                    className="comment-text-area"
+                                    type="text"
+                                    name= "comment"
+                                    placeholder="leave a comment..."
+                                    value = {comment}
+                                    onChange={(event) => {setComment(event.target.value)}}
+                                    required
+                                ></textarea>
+                                <div className="btn-comment-container">
+                                    <button className="btn-comment" onClick={handleCommentSubmit}>➲</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
                 </div>
 
-            </div>
 
+            </div>
             
         </section>
     )
