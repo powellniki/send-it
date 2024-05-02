@@ -1,37 +1,44 @@
 .route-link {
     display: flex;
     flex-wrap: wrap;
-    flex-basis: 25%;
-    height: 300px;
-    border: #32b473 1px solid;
+    flex-basis: 22%;
+    height: 250px;
+    border: #81938a 1px solid;
+    box-shadow:  6px 4px 1px rgba(194, 124, 244, 0.918);
     border-radius: 8px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'tahoma';
     margin: 15px;
-    background-color: #b1c9bd2d;
     overflow: hidden;
+    width: 100%;
 
-    .route-item {
-        display: flex;
-        flex-direction: column;
+    .route-container {
         width: 100%;
-    
-        .route-primary {
+        height: 100%;
+        
+        .route-details {
+            display: flex;
+            flex-direction: column;
             width: 100%;
-
+            height: 100%;
+            
             .route-details-primary {
                 width: 100%;
+                height: 100%;
                 
                 .image-container {
                     width: 100%;
-
+                    height: 50%;
+                    
                     img {
                         width: 100%;
+                        height: fit-content;
                     }
                 }
 
                 .star-rating-container {
                     display: flex;
                     flex-wrap: wrap;
+                    font-size: 20px;
 
                     .rating-item {
                         padding: 5px;
@@ -40,26 +47,22 @@
 
                 .route-name {
                     font-family: 'abduction';
-                    font-size: 25px;
-                    padding: 5px;
+                    color: #51ed6e;
+                    text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+                    font-size: 20px;
+                    font-weight: 100;
+                    padding-left: 5px;
                 }
 
                 .route-info {
                     padding-left: 5px;
+                    color: #51ed6e;
+                    font-size: 12px;
                 }
             }
 
-            .route-details-secondary {
-                width: 30%;
-                padding-left: 5px;
-                padding-top: 5px;
-            }
         }
         
-        .route-secondary {
-            font-size: 12px;
-            margin-top: 20px;
-        }
     }
 }
 
@@ -76,5 +79,6 @@
 
 .route-link {
     text-decoration: none;
-    color: #32b473;
+    /* color: #51ed6e; */
+
 }
