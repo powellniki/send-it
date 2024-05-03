@@ -5,7 +5,8 @@
     justify-content: center;
     width: 100vw;
     height: 100vh;
-    background-color: #b7dbc9;
+    background-image: url('https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-14_856985d9.jpeg');
+    width: 100%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

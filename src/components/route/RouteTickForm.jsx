@@ -60,7 +60,7 @@ export const RouteTickForm = ({currentUser}) => {
             date: formatDate(selectedDate),
             userId: currentUser.id,
             routeId: parseInt(routeId),
-            ascent: parseInt(ascent),
+            leadStatusId: parseInt(ascent),
             notes: note,
             rating: rating
         }
@@ -101,7 +101,7 @@ export const RouteTickForm = ({currentUser}) => {
                                                     className="option"
                                                     key={leadOption.id}
                                                     type="radio" 
-                                                    name="leadId"
+                                                    name="leadStatusId"
                                                     value={leadOption.id}
                                                     onChange={(event) => {setAscent(event.target.value)}}
                                                     required
