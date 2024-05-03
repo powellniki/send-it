@@ -28,6 +28,7 @@ ul.member-navbar {
       }
     }
   }
+  
   .navbar-elements {
     display: flex;
     flex-wrap: wrap;

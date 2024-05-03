@@ -18,29 +18,29 @@ export const RouteObject = ({route, currentUser, getAndSetAllRoutes}) => {
 
 
     return (
-        <section className="route-container">
+        <section className="employee-route-container">
 
-            <div className="route-item">
+            <div className="employee-route-item">
 
-                <div className="route-details">
+                <div className="employee-route-details">
 
-                    <div className="route-details-primary">
-                        <div className="image-container" style={{ backgroundImage: `url(${route.img})`}}></div>
-                        <div className="route-information">
-                            <header className="route-name">{route.name}, {route.grade?.name}</header>
-                            <div className="route-info">Type: {route.type?.name}</div>
+                    <div className="employee-route-details-primary">
+                        <div className="employee-image-container" style={{ backgroundImage: `url(${route.img})`}}></div>
+                        <div className="employee-route-information">
+                            <header className="employee-route-name">{route.name}, {route.grade?.name}</header>
+                            <div className="employee-route-info">Type: {route.type?.name}</div>
                             {/* <div className="route-info">Setter: {route.user?.fullName}</div> */}
-                            <div className="route-info">{route.dateSet}</div>
+                            <div className="employee-route-info">{route.dateSet}</div>
                         </div>
                     </div>
 
-                    <div className="route-details-secondary">
+                    <div className="remployee-oute-details-secondary">
                         {currentUser.id === route.user?.id ? 
-                            <div className="route-edit">
+                            <div className="employee-route-edit">
                                 <Link to={`/myroutes/edit/${route.id}`}>
-                                    <button className="btn-edit">Edit</button>
+                                    <button className="employee-btn-edit">Edit</button>
                                 </Link>
-                                <button className="btn-delete" onClick={() => {handleDelete(route.id)}} >Delete</button>
+                                <button className="employee-btn-delete" onClick={() => {handleDelete(route.id)}} >Delete</button>
                             </div>
                         : "" }
                     </div>
