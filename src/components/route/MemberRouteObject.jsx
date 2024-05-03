@@ -58,25 +58,18 @@ export const MemberRouteObject = ({route}) => {
                 <div className="route-details">
 
                     <div className="route-details-primary">
-
-                        <div className="image-container" style={{ backgroundImage: `url(${route.img})` }}>
-
-                            {/* <img src={route.img}/> */}
-                        </div>
-
+                        <div className="image-container" style={{ backgroundImage: `url(${route.img})` }}></div>
                         <div className="star-rating-container">
                             <div className="rating-item">
                                 <AverageStarRating averageRating={averageRating}/>
                             </div>
                         </div>
-
                         <div className="route-name">
                             <header>{route.name}, {route.grade?.name}</header>
                         </div>
                         {/* <div className="route-info">{route.grade?.name} </div> */}
                         {/* <div className="route-info">Setter: {route.user?.fullName}</div> */}
                         {/* <div className="route-info">{route.dateSet}</div> */}
-
                     </div>
 
                 </div>
