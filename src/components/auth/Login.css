@@ -72,12 +72,10 @@
         margin: auto;
       }
       .auth-logo {
-        /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); */
         margin: 20px;
         color: #32b473;
         font-family: 'jedi-outline';
         font-size: 50px;
-        /* font-style: italic; */
     
         span {
           color: #4bf15c;
@@ -95,7 +93,7 @@
   padding: 10px;
   font-weight: 100;
   padding-top: 5px;
-  background-color: rgb(162, 41, 248);
+  background-color: #560b93;
   border: none;
   border-radius: 8px;
   color: #ffffff; /* White text color */
@@ -107,7 +105,7 @@
   color: #ffffff; /* White text color */
   font-size: 40px;
   font-family: 'jedi-solid';
-  text-shadow: 0 0 5px rgba(162, 41, 248, 0.983);
+  text-shadow: 0 0 5px #380860;
   line-height: 0px;
 }
 

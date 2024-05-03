@@ -64,15 +64,3 @@ ul.member-navbar {
     color: #51ed6e;
   }
 }
-
-
-  
-  .nav-new-route {
-    flex-basis: 15%;
-    text-align: center;
-    list-style-type: none;
-    background-color: limegreen;
-    padding: 10px 0px;
-    margin: 0 5px;
-    border-radius: 5px;
-  }

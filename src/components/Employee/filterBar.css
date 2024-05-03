@@ -10,12 +10,16 @@
     height: 45px;
     margin: 20px;
     padding-top: 3px;
-    padding-left: 8px;
-    background-color: rgba(162, 41, 248, 0.983);
+    padding-left: 10px;
+    background-color: #560b93;
     border: none;
     border-radius: 8px;
     color: #ffffff; /* White text color */
-    font-family: 'abduction';
-    font-size: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-family: 'rocket';
+    font-size: 25px;
+    letter-spacing: 1.5px;
+}
+
+.route-search:active {
+    font-size: 14px;
 }

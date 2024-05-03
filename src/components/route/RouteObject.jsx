@@ -29,7 +29,7 @@ export const RouteObject = ({route, currentUser, getAndSetAllRoutes}) => {
                         <div className="route-information">
                             <header className="route-name">{route.name}, {route.grade?.name}</header>
                             <div className="route-info">Type: {route.type?.name}</div>
-                            <div className="route-info">Setter: {route.user?.fullName}</div>
+                            {/* <div className="route-info">Setter: {route.user?.fullName}</div> */}
                             <div className="route-info">{route.dateSet}</div>
                         </div>
                     </div>
