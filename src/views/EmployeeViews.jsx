@@ -15,9 +15,16 @@ export const EmployeeViews = ({currentUser}) => {
     return (
         <Routes>
             <Route path="/" element={
-                <div className="overlay">
-                    <EmployeeNav />
-                    <Outlet />
+                <div className="root-container">
+
+                    <div className="main-navigation">
+                        <EmployeeNav />
+                    </div>
+
+                    <div className="main-container">
+                        <Outlet />
+                    </div>
+
                 </div>
             }>
 

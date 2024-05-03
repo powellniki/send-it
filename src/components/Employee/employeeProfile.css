@@ -1,0 +1,77 @@
+.employee-profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-image: url('https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-14_856985d9.jpeg');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .circular-gradient {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, #000000 5%,#000000be 40%, #0000004f 60%, #00000000 100%);
+
+        .employee-profile-details {
+            display: flex;
+            flex-direction: column;
+            margin: 250px auto auto auto;
+    
+            .employee-profile-information {
+    
+                .user-name {
+                    padding: 10px;
+                    font-size: 25px;
+                    font-family: 'jedi-outline';
+                    font-size: 100px;
+                    color: rgb(162, 41, 248);
+    
+                }
+                .user-email {
+                    padding: 10px;
+                    font-size: 30px;
+                    font-family: 'rocket';
+                    color: #4bf15c;
+                    letter-spacing: 1.75px;
+                    text-align: end;
+    
+                    .user-info {
+                        font-weight: bold;
+                    }
+                }
+            }
+            .employee-profile-edit {
+                display: flex;
+                padding-top: 50px;
+                
+
+                .employee-btn-edit {
+                    width: 30%;
+                    height: 45px;
+                    margin: 25px auto;
+                    padding: 10px;
+                    font-weight: 100;
+                    padding-top: 5px;
+                    background-color: #560b93;
+                    border: none;
+                    border-radius: 8px;
+                    color: #ffffff; /* White text color */
+                    font-family: 'jedi-outline';
+                    font-size: 20px;
+                }
+                .employee-btn-edit:hover {
+                    color: #ffffff; /* White text color */
+                    font-size: 40px;
+                    font-family: 'jedi-solid';
+                    text-shadow: 0 0 5px #380860;
+                    line-height: 0px;
+                }
+            }
+        }
+    }
+
+}

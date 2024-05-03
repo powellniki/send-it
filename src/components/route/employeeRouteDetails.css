@@ -89,7 +89,8 @@
                             width: 100%;
                             display: flex;
                             justify-content: center;
-                            padding: 5px;
+                            align-items: center;
+                            padding: 10px;
                             
 
                             .employee-btn-edit {

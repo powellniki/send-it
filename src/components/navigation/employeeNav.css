@@ -2,6 +2,7 @@
     background: linear-gradient(to right,#370063 5%, #000000 100%);
     display: flex;
     flex-wrap: nowrap;
+    width: 100%;
     padding-top: 15px;
     padding-bottom: 15px;
     margin: 0px;
