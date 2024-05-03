@@ -80,7 +80,7 @@ export const NewRouteForm = ({currentUser}) => {
     return (
         <form className="new-route-form">
 
-            <h2 className="heading">Lets Set a New Route!</h2>
+            <h2 className="heading">lets set a new route!</h2>
 
             <div className="form-container">
 

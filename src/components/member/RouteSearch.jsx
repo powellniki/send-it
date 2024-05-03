@@ -51,7 +51,7 @@ export const RouteSearch = ({currentUser}) => {
     return (
         <div className="route-finder-container">
 
-            <h2 className="heading">Gym Routes</h2>
+            <h2 className="heading">route finder</h2>
             
             <div className="member-route-filter">
                 <FilterBar 

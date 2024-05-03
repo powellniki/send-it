@@ -73,7 +73,7 @@ export const RouteTickForm = ({currentUser}) => {
     return (
         <form key="tick-form" className="route-tick-form">
 
-            <h2 className="heading">How Did It Go?</h2>
+            <h2 className="heading">how did it go?</h2>
 
             <div className="form-container">
 
@@ -124,13 +124,16 @@ export const RouteTickForm = ({currentUser}) => {
                     </fieldset>
 
                     <fieldset>
-                        <StarRating rating={rating} setRating={setRating}/>
-                        <p>star rating: {rating}</p>
+                        <div className="tick-info">
+                            <h3>Rating:</h3>
+                            <StarRating rating={rating} setRating={setRating}/>
+                            <p className="star-rating">your rating: {rating} stars</p>
+                        </div>
                     </fieldset>
 
                     <fieldset>
                         <div className="btn-tick-container">
-                            <button className="btn-tick-save" onClick={handleTick}>Save Tick</button>
+                            <button className="btn-tick-save" onClick={handleTick}>tick</button>
                         </div>
                     </fieldset>
 

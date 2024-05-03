@@ -1,21 +1,22 @@
 
 .route-tick-form {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    background-color: #b7dbc9;
+    align-items: center;
+    background-image: url('https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-14_856985d9.jpeg');
+    width: 100%;
     background-size: cover;
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
 
     .heading {
         font-size: 55px;
-        font-family: 'abduction';
+        font-family: 'jedi-outline';
         text-shadow: 0 0 10px rgba(0, 0, 0, 1);
         padding-top: 50px;
-        margin: 15px 0px 50px 30px;
+        margin: 15px 0px 50px 0px;
         color: #f68732;
     }
 
@@ -32,37 +33,66 @@
             border-radius: 8px;
             padding: 20px;
             width: 50%;
-            height: 50%;
+            height: 60%;
             font-family: 'tahoma';
     
-    
-            .radio-buttons {
-    
-    
-                .lead-options {
-    
-    
-                    .option {
-    
-    
-                    }
-                }
-            }
-            .route-notes {
-                display: flex;
-                flex-direction: column;
 
+
+
+
+            .tick-info {
+                h3 {
+                    font-size: 20px;
+                    font-weight: bolder;
+                    font-family: 'rocket';
+                }
+                .lead-options {
+
+                }
+                .route-notes {
+                    display: flex;
+                    flex-direction: column;
+                }
                 .textarea-container {
                     width: 100%;
                     height: 100%;
                     justify-content: center;
 
                     textarea {
-                        width: 95%;
+                        border-radius: 5px;
+                        width: 98%;
                         height: 60px;
                         font-family: 'tahoma';
                         padding: 5px;
                     }
+                }
+                .star-rating {
+                    margin-left: 10px;
+                }
+            }
+            .btn-tick-container {
+                display: flex;
+                justify-content: end;
+
+                .btn-tick-save {
+                    width: 25%;
+                    height: 45px;
+                    padding: 10px;
+                    font-weight: 100;
+                    padding-top: 5px;
+                    background-color: #560b93;
+                    border: none;
+                    border-radius: 8px;
+                    color: #ffffff; /* White text color */
+                    font-family: 'jedi-outline';
+                    font-size: 20px;
+                }
+                .btn-tick-save:hover {
+                    color: #ffffff; /* White text color */
+                    font-size: 40px;
+                    font-family: 'jedi-solid';
+                    text-shadow: 0 0 5px #380860;
+                    line-height: 0px;
                 }
             }
         }

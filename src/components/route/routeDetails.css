@@ -50,11 +50,11 @@
                 .route-image {
                     display: flex;
                     justify-content: center;
-                    width: 50%;
+                    width: 45%;
     
                     img {
-                        width: 90%;
-                        height: auto;
+                        width: 400px;
+                        height: 100%;
                     }
                 }
                 .route-information {
@@ -157,10 +157,11 @@
                             .tick-info {
                                 display: flex;
                                 flex-wrap: wrap;
-                                padding: 4px 0 4px 0;
+                                padding: 5px;
 
                                 .tick-date {
                                     font-size: 13px;
+                                    padding-bottom: 5px;
                                     font-family: 'tahoma';
                                 }
                                 .tick-ascent {
