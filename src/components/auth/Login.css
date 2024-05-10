@@ -2,37 +2,23 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
-  background-image: url('/src/components/pictures/free-climbing-wall-vector.png');
-  background-size: cover;
+  background-image: url('https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-14_856985d9.jpeg');
   width: 100%;
+  background-size: cover;
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-
-  .auth-logo {
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-    margin: 20px;
-    /* color: #f68732; */
-    color: rgb(80, 240, 149);
-    font-family: 'abduction';
-    font-size: 50px;
-
-    span {
-      color: #b7dbc9;
-
-    }
   }
-
+  
   .auth-container {
     display: flex;
     margin: auto;
-    width: 70%;
-    height: 75%;
+    width: 80%;
+    height: 85%;
     align-items: center;
-    background-color: #b7dbc9d1;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
+    justify-content: center;
+    background: radial-gradient(circle, #000000 10%,#000000d0 25%, #00000010 40%, #00000000 100%);
+  
 
 
     .auth-content {
@@ -72,18 +58,28 @@
     /* this is the main writing on the right side of the landing page */
     .landing {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: 'abduction';
+      flex-direction: column;
+      width: 100%;
+      align-items: end;
+      font-family: 'rocket';
 
       .landing-one {
-        color:#f68732;
-        /* color:  #32b473; */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-        font-size: 110px;
-        margin: 25px;
-        font-weight: 100;
+        display: flex;
+        text-align: center;
+        color:rgb(162, 41, 248);
+        text-shadow: 2px 2px 4px rgba(253, 217, 100, 0.75);
+        font-size: 170px;
+        margin: auto;
       }
+      .auth-logo {
+        margin: 20px;
+        color: #32b473;
+        font-family: 'jedi-outline';
+        font-size: 50px;
+    
+        span {
+          color: #4bf15c;
+        }
     }
   }
 }
@@ -93,23 +89,24 @@
 .auth-form button {
   width: 100%;
   height: 45px;
-  margin: 5px auto;
+  margin: 25px auto;
+  padding: 10px;
   font-weight: 100;
   padding-top: 5px;
-  background-color: rgba(162, 41, 248, 0.983);
+  background-color: #560b93;
   border: none;
   border-radius: 8px;
   color: #ffffff; /* White text color */
-  font-family: 'abduction';
+  font-family: 'jedi-outline';
   font-size: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .auth-form button:hover {
   color: #ffffff; /* White text color */
-  font-size: 50px;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  font-size: 40px;
+  font-family: 'jedi-solid';
+  text-shadow: 0 0 5px #380860;
+  line-height: 0px;
 }
 
 

@@ -10,39 +10,43 @@ export const RouteObject = ({route, currentUser, getAndSetAllRoutes}) => {
     const navigate = useNavigate()
 
 
-    const handleDelete = (routeId) => {
-        deleteRoute(routeId).then(() => {
-            getAndSetAllRoutes()
-        })
-    }
+    // const handleDelete = (routeId) => {
+    //     deleteRoute(routeId).then(() => {
+    //         getAndSetAllRoutes()
+    //     })
+    // }
 
 
     return (
-        <section className="route-item-container">
+        <Link to={`/route/${route.id}`} className="employee-route-container">
+            <div className="employee-route-item">
 
-            <div className="route-item">
+                <div className="employee-route-details">
 
-                <div className="route-details-primary">
-                    <header className="route-name">{route.name}</header>
-                    <div className="route-info">Type: {route.type?.name}</div>
-                    <div className="route-info">Grade: {route.grade?.name} </div>
-                    <div className="route-info">Setter: {route.user?.fullName}</div>
-                </div>
-
-                <div className="route-details-secondary">
-                    <div className="route-date">{route.dateSet}</div>
-                    {currentUser.id === route.user?.id ? 
-                        <div className="route-edit">
-                            <Link to={`/myroutes/edit/${route.id}`}>
-                                <button className="btn-edit">Edit</button>
-                            </Link>
-                            <button className="btn-delete" onClick={() => {handleDelete(route.id)}} >Delete</button>
+                    <div className="employee-route-details-primary">
+                        <div className="employee-image-container" style={{ backgroundImage: `url(${route.img})`}}></div>
+                        <div className="employee-route-information">
+                            <header className="employee-route-name">{route.name}, {route.grade?.name}</header>
+                            {/* <div className="employee-route-info">Type: {route.type?.name}</div> */}
+                            {/* <div className="route-info">Setter: {route.user?.fullName}</div> */}
+                            <div className="employee-route-info">Set: {route.dateSet}</div>
                         </div>
-                    : "" }
+                    </div>
+
+                    <div className="remployee-oute-details-secondary">
+                        {/* {currentUser.id === route.user?.id ? 
+                            <div className="employee-route-edit">
+                                <Link to={`/myroutes/edit/${route.id}`}>
+                                    <button className="employee-btn-edit">Edit</button>
+                                </Link>
+                                <button className="employee-btn-delete" onClick={() => {handleDelete(route.id)}} >Delete</button>
+                            </div>
+                        : "" } */}
+                    </div>
+
                 </div>
 
             </div>
-
-        </section>
+        </Link>
     )
 }

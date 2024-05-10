@@ -1,61 +1,81 @@
 .employee-navbar {
+    background: linear-gradient(to right,#370063 5%, #000000 100%);
     display: flex;
     flex-wrap: nowrap;
-    padding: 0 5px;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0px;
     list-style-type: none;
 
     
     .navbar-logo {
-        font-size: 25px;
-        font-family: 'abduction';
-        padding: 10px;
 
-
-        .logo1 {
-            color: #b7dbc9;
-        }
-        .logo2 {
-            color: #32b473;
-        }
-
+        .navbar-item {
+            .navbar-title {
+              font-size: 65px;
+      
+              .nav-text {
+                .logo1 {
+                  
+                  color: #32b473;
+                  font-family: 'rocket';
+                }
+                .logo2 {
+                  color: #51ed6e;
+                  font-family: 'rocket';
+                }
+              }
+            }
+          }
     }
 
     .navbar-elements {
         display: flex;
         flex-wrap: wrap;
         margin-left: auto;
-        padding: 10px;
-        font-size: 20px;
+        padding-top: 7px;
+        padding-right: 5px;
+        font-size: 35px;
+        align-items: center;
+        font-family: 'rocket';
 
 
         .navbar-item {
 
-            .nav-text {
+            /* .nav-text {
 
-            }
+            } */
             .nav-new-route {
-
+                flex-basis: 15%;
+                text-align: center;
+                list-style-type: none;
+                background-color: limegreen;
+                padding: 10px 10px 5px 15px;
+                margin: 0 5px;
+                border-radius: 100px;
             }
         }
     }
 
     .navbar-logout {
-        font-size: 20px;
-        background-color: rgba(162, 41, 248, 0.983);
-        border-radius: 25px;
-        padding: 5px;
-        margin-right: 5px;
-
+        display: flex;
+        align-items: center;
+        font-size: 35px;
+        border-radius: 100px;
+        padding-top: 3px;
+        margin-right: 10px;
     }
+
+
     a {
-        text-decoration: none;
-        color: #32b473;
-      
-        font-family: 'abduction';
-        letter-spacing: -0.5px;
+    text-decoration: none;
+    color: #ffffff;
+    font-family: 'rocket';
+    letter-spacing: 1.75px;
       }
       
       a:hover {
-        color: seagreen;
+        color: #51ed6e;
       }
 }

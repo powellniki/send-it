@@ -1,8 +1,8 @@
-import { Link, useParams } from "react-router-dom"
-import './memberRouteObject.css'
+import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { getTicksByRouteId } from "../../services/tickServices.js"
 import { AverageStarRating } from "./AverageStarRating.jsx"
+import './memberRouteObject.css'
 import './starRating.css'
 
 
@@ -20,7 +20,7 @@ export const MemberRouteObject = ({route}) => {
 
     useEffect(() => {
         getTicksForRoute() 
-    },[])
+    },[route])
 
 
     const findAverageRating = () => {
@@ -48,40 +48,27 @@ export const MemberRouteObject = ({route}) => {
         }
         
     },[ticksExpandRoute])
-
     
 
     return (
-        <Link to={`/route/${route.id}`} className="route-link">
+        <Link to={`/route/${route.id}`} className="member-route-link">
 
-            <section className="route-item">
+            <section className="member-route-container">
 
-                <div className="route-primary">
+                <div className="member-route-details">
 
-                    <div className="route-details-primary">
-
-                        <div className="star-rating-container">
-                            <div className="rating-item">
+                    <div className="member-route-details-primary">
+                        <div className="member-image-container" style={{ backgroundImage: `url(${route.img})` }}></div>
+                        <div className="member-star-rating-container">
+                            <div className="member-rating-item">
                                 <AverageStarRating averageRating={averageRating}/>
                             </div>
-                            <div className="rating-value"> &nbsp; {averageRating}</div>
                         </div>
-
-                        <div className="route-info route-name">
-                            <header>{route.name}</header>
+                        <div className="member-route-name">
+                            <header>{route.name}, {route.grade?.name}</header>
                         </div>
-                        <div className="route-info">Grade: {route.grade?.name} </div>
-                        <div className="route-info">Setter: {route.user?.fullName}</div>
                     </div>
 
-                    <div className="route-details-secondary">
-                        <div className="route-date">{route.dateSet}</div>
-                    </div>
-
-                </div>
-
-                <div className="route-secondary">
-                    {/* <StarRating /> */} 
                 </div>
 
             </section>
@@ -89,4 +76,5 @@ export const MemberRouteObject = ({route}) => {
         </Link>
     )
 }
+
 

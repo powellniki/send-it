@@ -60,7 +60,7 @@ export const RouteTickForm = ({currentUser}) => {
             date: formatDate(selectedDate),
             userId: currentUser.id,
             routeId: parseInt(routeId),
-            ascent: parseInt(ascent),
+            leadStatusId: parseInt(ascent),
             notes: note,
             rating: rating
         }
@@ -73,7 +73,7 @@ export const RouteTickForm = ({currentUser}) => {
     return (
         <form key="tick-form" className="route-tick-form">
 
-            <h2 className="heading">How Did It Go?</h2>
+            <h2 className="heading">how did it go?</h2>
 
             <div className="form-container">
 
@@ -101,7 +101,7 @@ export const RouteTickForm = ({currentUser}) => {
                                                     className="option"
                                                     key={leadOption.id}
                                                     type="radio" 
-                                                    name="leadId"
+                                                    name="leadStatusId"
                                                     value={leadOption.id}
                                                     onChange={(event) => {setAscent(event.target.value)}}
                                                     required
@@ -124,13 +124,16 @@ export const RouteTickForm = ({currentUser}) => {
                     </fieldset>
 
                     <fieldset>
-                        <StarRating rating={rating} setRating={setRating}/>
-                        <p>star rating: {rating}</p>
+                        <div className="tick-info">
+                            <h3>Rating:</h3>
+                            <StarRating rating={rating} setRating={setRating}/>
+                            <p className="star-rating">your rating: {rating} stars</p>
+                        </div>
                     </fieldset>
 
                     <fieldset>
                         <div className="btn-tick-container">
-                            <button className="btn-tick-save" onClick={handleTick}>Save Tick</button>
+                            <button className="btn-tick-save" onClick={handleTick}>tick</button>
                         </div>
                     </fieldset>
 

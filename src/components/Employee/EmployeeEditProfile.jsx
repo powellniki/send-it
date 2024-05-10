@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getUserById, updateUser } from '../../services/userService.js'
 import { useNavigate } from 'react-router-dom'
-import './profile.css'
+import './employeeProfile.css'
 
 
 

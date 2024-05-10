@@ -6,7 +6,7 @@ import { EmployeeProfile } from "../components/Employee/EmployeeProfile.jsx"
 import { EmployeeEditProfile } from "../components/Employee/EmployeeEditProfile.jsx"
 import { NewRouteForm } from "../components/route/NewRouteForm.jsx"
 import { EditRoute } from "../components/route/EditRoute.jsx"
-import { RouteDetails } from "../components/route/RouteDetails.jsx"
+import { EmployeeRouteDetails } from "../components/route/EmployeeRouteDetails.jsx"
 
 
 
@@ -15,9 +15,16 @@ export const EmployeeViews = ({currentUser}) => {
     return (
         <Routes>
             <Route path="/" element={
-                <div className="overlay">
-                    <EmployeeNav />
-                    <Outlet />
+                <div className="root-container">
+
+                    <div className="main-navigation">
+                        <EmployeeNav />
+                    </div>
+
+                    <div className="main-container">
+                        <Outlet />
+                    </div>
+
                 </div>
             }>
 
@@ -26,7 +33,6 @@ export const EmployeeViews = ({currentUser}) => {
 
                 <Route path="myroutes">
                     <Route index element={<MyRoutes currentUser={currentUser}/>} />
-                    <Route path="edit/:routeId" element={<EditRoute currentUser={currentUser}/>} />
                 </Route>
 
 
@@ -37,7 +43,10 @@ export const EmployeeViews = ({currentUser}) => {
 
                 <Route path="newroute" element={<NewRouteForm currentUser={currentUser}ß/>} />
 
-                <Route path="routedetails" element={<>This will be the route information</>} />
+                <Route path="route">
+                    <Route path=":routeId" element={<EmployeeRouteDetails currentUser={currentUser} />} /> 
+                    <Route path=":routeId/edit" element={<EditRoute currentUser={currentUser}/>} />
+                </Route>
 
 
             </Route>

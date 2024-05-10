@@ -14,9 +14,16 @@ export const MemberViews = ({currentUser}) => {
     return (
         <Routes>
         <Route path="/" element={
-            <div className="overlay">
-                <MemberNav />
-                <Outlet />
+            <div className="root-container">
+
+                <div className="main-navigation">
+                    <MemberNav />
+                </div>
+
+                <div  className="main-container">
+                    <Outlet />
+                </div>
+                
             </div>
 
 }>
