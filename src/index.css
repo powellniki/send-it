@@ -99,6 +99,16 @@ h1, h2, h3, h4 {
   src: url('/src/components/fonts/rock-italic/rocket.otf') format('opentype');
 }
 
+@font-face {
+  font-family: 'creato-light';
+  src: url('/src/components/fonts/creato_display/CreatoDisplay-Light.otf')
+}
+
+@font-face {
+  font-family: 'creato-regular';
+  src: url('/src/components/fonts/creato_display/CreatoDisplay-Regular.otf')
+}
+
 
 fieldset {
     border: none;
