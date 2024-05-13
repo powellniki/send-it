@@ -8,34 +8,42 @@ import "./Login.css"
 
 
 export const Login = () => {
-  const [email, set] = useState("")
+  const [email, setEmail] = useState("")
+  const [animate, setAnimate] = useState(false)
   const navigate = useNavigate()
 
   const handleLogin = (e) => {
     e.preventDefault()
 
-    return getUserByEmail(email).then((foundUsers) => {
-      if (foundUsers.length === 1) {
-        const user = foundUsers[0]
-        localStorage.setItem(
-          "sendit_user",
-          JSON.stringify({
-            id: user.id,
-            name: user.name,
-            isStaff: user.isStaff,
-            email: user.email
-          }) 
-        )
+    setAnimate(true)
 
-        navigate("/")
-      } else {
-        window.alert("Invalid login")
-      }
-    })
-  }
+    setTimeout(() => {
+      getUserByEmail(email).then((foundUsers) => {
+        if (foundUsers.length === 1) {
+          const user = foundUsers[0];
+          localStorage.setItem(
+            "sendit_user",
+            JSON.stringify({
+              id: user.id,
+              name: user.name,
+              isStaff: user.isStaff,
+              email: user.email
+            }) 
+          );
+
+          // Navigate to the home page
+          navigate("/");
+        } else {
+          window.alert("Invalid login");
+          setAnimate(false)
+        }
+      });
+    }, 1000); // Wait for the fade-out animation to complete (2000 milliseconds)
+
+  };
 
   return (
-  <div className="login-page">
+    <div className={`login-page ${animate ? 'fade-out' : 'fade-in'}`}>
     
     <div className="auth-container">
 
@@ -51,7 +59,7 @@ export const Login = () => {
                 type="email"
                 value={email}
                 className="auth-form-input"
-                onChange={(evt) => set(evt.target.value)}
+                onChange={(evt) => setEmail(evt.target.value)}
                 placeholder="Email address"
                 required
                 autoFocus

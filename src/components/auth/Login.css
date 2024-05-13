@@ -8,7 +8,10 @@
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
+  animation: fadeIn 0.7s ease-in-out forwards;
+  animation: fadeOut 1s ease-in-out forwards;
   }
+
   
   .auth-container {
     display: flex;
@@ -130,4 +133,23 @@
 
 .register-link a:hover {
   text-decoration: underline;
+}
+
+
+@keyframes fadeOut {
+  0% { opacity: 1;} /* Fully visible, black background */
+  100% { opacity: 0;} /* Fully transparent, transparent background */
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0;} /* Fully transparent, transparent background */
+  100% { opacity: 1;} /* Fully visible, black background */
+}
+
+.login-page.fade-out {
+  animation: fadeOut 1s ease forwards;
+}
+
+.login-page.fade-in {
+  animation: fadeIn 0.7s ease forwards;
 }
