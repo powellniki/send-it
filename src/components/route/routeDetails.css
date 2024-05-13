@@ -75,9 +75,14 @@
                         padding-top: 10px;
 
                         .route-info {
-                            font-family: 'tahoma';
+                            font-family: 'creato-light';
+                            font-size: 17px;
                             padding-bottom: 5px;
                             padding-left: 10px;
+
+                            .route-info-label {
+                                font-family: 'creato-regular';
+                            }
                         }
                         .route-description {
                             margin-top: 25px;
@@ -149,27 +154,32 @@
                             width: 100%;
                             
                             .tick-username {
-                                font-family: 'tahoma';
+                                font-family: 'creato-regular';
                                 font-weight: 500;
-                                font-size: 15px;
-                                padding: 0 0 5px 0;
+                                font-size: 16px;
                             }
                             .tick-info {
                                 display: flex;
                                 flex-wrap: wrap;
                                 padding: 5px;
 
+                                .member-rating {
+                                    width: 100%;
+                                    padding: 2px 0 2px 0 ;
+                                    font-size: 14px;
+                                }
                                 .tick-date {
-                                    font-size: 13px;
-                                    padding-bottom: 5px;
-                                    font-family: 'tahoma';
+                                    font-size: 14px;
+                                    font-family: 'creato-light';
                                 }
                                 .tick-ascent {
-                                    font-size: 13px;
-                                    font-family: 'tahoma';
+                                    font-size: 14px;
+                                    font-family: 'creato-light';
                                 }
                                 .tick-notes {
                                     width: 100%;
+                                    font-size: 14px;
+                                    font-family: 'creato-light';
                                 }
                             }
                         }
@@ -185,17 +195,19 @@
                         .comment-item {
                             border-bottom: 1px lightseagreen solid;
                             padding-bottom: 15px;
-                            font-family: 'tahoma';
+                            font-family: 'creato-regular';
                             font-size: 14px;
 
                             .comment-user-name {
-                                font-size: 15px;
+                                font-size: 16px;
                                 padding-bottom: 5px;
                                 padding-top: 15px;
 
                             }
                             .comment-user-comment {
-                                font-family: 'Times New Roman', Times, serif;
+                                font-size: 14px;
+                                font-family: 'creato-light';
+                                padding: 5px;
                             }
                         }
                     }
@@ -204,7 +216,7 @@
                             width: 98%;
                             height: 100px;
                             border-radius: 8px;
-                            font-family: 'tahoma';
+                            font-family: 'creato-regular';
                             font-size: 14px;
                             padding: 5px 10px;
 
@@ -219,14 +231,23 @@
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
-                                height: 35px;
-                                width: 35px;
+                                height: 40px;
+                                width: 40px;
                                 border: none;
                                 border-radius: 8px;
-                                background-color: rgba(162, 41, 248, 0.983);
+                                background-color: rgb(162, 41, 248);
                                 color: #ffffff;
-                                font-size: 25px;
+                                font-size: 35px;
 
+                            }
+                            .btn-comment:hover {
+                                color: rgb(162, 41, 248);
+                                background-color: #ffffff;
+                                font-size: 40px;
+                                height: 40px;
+                                width: 40px;
+                                font-family: 'jedi-solid';
+                                line-height: 2px;
                             }
                         }
                     }

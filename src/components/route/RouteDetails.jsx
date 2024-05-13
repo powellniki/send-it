@@ -9,12 +9,13 @@ import { deleteToDo, getToDosByRouteId, postToDo } from "../../services/toDoServ
 import { AverageStarRating } from "./AverageStarRating.jsx"
 import './starRating.css'
 import './routeDetails.css'
+import { MemberStarRating } from "./MemberRouteRating.jsx"
 
 
 const setDate = () => {
     const today = new Date()
     const day = today.getDate()
-    const month = today.getMonth()
+    const month = today.getMonth() + 1
     const year = today.getFullYear()
     return `${month}/${day}/${year}`
 }
@@ -101,22 +102,35 @@ export const RouteDetails = ({currentUser}) => {
     },[currentUser, update])
 
 
-
-    // functions for adding likes, ticks, to-dos
+    // functions for adding to-dos
     const handleToDo = () => {
         const newToDo = {
             userId: currentUser.id,
             routeId: route.id           
         }
-        postToDo(newToDo).then(setUpdate(!update))
+        postToDo(newToDo).then(() => {
+            getToDosByRouteId(routeId).then(todoArray => {
+                setTodosExpandRoute(todoArray)
+            })
+        })
     }
-    const handleLike = () => {
-        const newLike = {
-            userId: currentUser.id,
-            routeId: route.id
-        }
-        postLikes(newLike).then(setUpdate(!update))
+    //  functions for deleting to-dos
+    const deleteMemberToDo = () => {
+        const foundToDo = todosExpandRoute.find(todo => todo.userId === currentUser.id)
+        deleteToDo(foundToDo.id).then(() => {
+            getToDosByRouteId(routeId).then(todoArray => {
+                setTodosExpandRoute(todoArray)
+            })
+        })
     }
+
+    // const handleLike = () => {
+    //     const newLike = {
+    //         userId: currentUser.id,
+    //         routeId: route.id
+    //     }
+    //     postLikes(newLike).then(setUpdate(!update))
+    // }
 
     const handleCommentSubmit = () => {
         const newComment = {
@@ -133,11 +147,6 @@ export const RouteDetails = ({currentUser}) => {
     }
     
     
-    //  functions for deleting likes, ticks, to-dos
-    const deleteMemberToDo = () => {
-        const foundToDo = todosExpandRoute.find(todo => todo.userId === currentUser.id)
-        deleteToDo(foundToDo.id).then(setUpdate(!update))
-    }
     // const deleteMemberLike = () => {
     //     const foundLike = likesExpandRoute.find(like => like.userId === currentUser.id)
     //     deleteLike(foundLike.id).then(setUpdate(!update))
@@ -171,11 +180,11 @@ export const RouteDetails = ({currentUser}) => {
                             </div>
 
                             <div className="route-info-container">
-                                <div className="route-info">Grade: {route.grade?.name}</div>
-                                <div className="route-info">Type: {route.type?.name}</div>
-                                <div className="route-info">Style: {route.style?.name}</div>
-                                <div className="route-info route-description">Description: {route.description}</div>
-                                <div className="route-info route-setter">Setter: {route.user?.fullName}</div>
+                                <div className="route-info"><span className="route-info-label">Grade: </span>{route.grade?.name}</div>
+                                <div className="route-info"><span className="route-info-label">Type: </span>{route.type?.name}</div>
+                                <div className="route-info"><span className="route-info-label">Style: </span>{route.style?.name}</div>
+                                <div className="route-info route-description"><span className="route-info-label">Description: </span>{route.description}</div>
+                                <div className="route-info route-setter"><span className="route-info-label">Setter: </span>{route.user?.fullName}</div>
                             </div>
                         </div>
 
@@ -203,6 +212,9 @@ export const RouteDetails = ({currentUser}) => {
                                         <div key={tick.id} className="activity-item">
                                             <div className="tick-username">{tick.user?.fullName}</div>
                                             <div className="tick-info">
+                                                <div className="member-rating">
+                                                    <MemberStarRating memberRating={tick.rating}/>
+                                                </div>
                                                 <div className="tick-date">{tick.date} -- </div>
                                                 <div className="tick-ascent">&nbsp;{tick.leadStatus?.name}</div>
                                                 <div className="tick-notes">{tick.notes}</div>
@@ -220,7 +232,7 @@ export const RouteDetails = ({currentUser}) => {
                                     return (
                                         <div key={comment.id} className="comment-item">
                                             <div className="comment-user-name">{comment.user?.fullName}</div>
-                                            <div className="comment-user-comment">{comment.comment}<span> - {comment.date}</span></div>
+                                            <div className="comment-user-comment">{comment.comment}<span> -- {comment.date}</span></div>
                                         </div>
                                     )
                                 })}
@@ -244,9 +256,7 @@ export const RouteDetails = ({currentUser}) => {
                         </div>
                     </div>
 
-
                 </div>
-
 
             </div>
             
