@@ -14,6 +14,7 @@ export const EmployeeViews = ({currentUser}) => {
 
     return (
         <Routes>
+
             <Route path="/" element={
                 <div className="root-container">
 

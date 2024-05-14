@@ -2,13 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-14_856985d9.jpeg');
+    background-image: url('https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-25_bc15ec98.jpeg');
     width: 100%;
     height: 100vh;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
+    animation: fadeIn 0.7s ease-in-out forwards;
 
     .heading {
         font-size: 55px;
@@ -35,7 +36,7 @@
             padding-bottom: 20px;
             width: 80%;
             height: 90%;
-            font-family: 'tahoma';
+            font-family: 'creato-regular';
 
 
             .route-info {
@@ -52,7 +53,7 @@
                     margin-bottom: 5px;
                     border: 1px solid #ced4da; /* Light gray border */
                     border-radius: 8px;
-                    font-family: 'tahoma';
+                    font-family: 'creato-regular';
                     font-size: 14px;
                 }
 
@@ -73,7 +74,7 @@
                     margin-right: 10px;
                     border: 1px solid #ced4da; /* Light gray border */
                     border-radius: 8px;
-                    font-family: 'tahoma';
+                    font-family: 'creato-regular';
                     font-size: 14px;
                 }
             }
@@ -105,3 +106,8 @@
         }
     }
 }
+
+@keyframes fadeIn {
+    0% { opacity: 0;} /* Fully transparent, transparent background */
+    100% { opacity: 1;} /* Fully visible, black background */
+  }

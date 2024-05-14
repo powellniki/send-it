@@ -8,34 +8,48 @@ import "./Login.css"
 
 
 export const Login = () => {
-  const [email, set] = useState("")
+  const [email, setEmail] = useState("")
+  const [animate, setAnimate] = useState(false)
   const navigate = useNavigate()
 
   const handleLogin = (e) => {
     e.preventDefault()
 
-    return getUserByEmail(email).then((foundUsers) => {
-      if (foundUsers.length === 1) {
-        const user = foundUsers[0]
-        localStorage.setItem(
-          "sendit_user",
-          JSON.stringify({
-            id: user.id,
-            name: user.name,
-            isStaff: user.isStaff,
-            email: user.email
-          }) 
-        )
+    setAnimate(true)
 
-        navigate("/")
-      } else {
-        window.alert("Invalid login")
-      }
-    })
-  }
+    setTimeout(() => {
+      getUserByEmail(email).then((foundUsers) => {
+        if (foundUsers.length === 1) {
+          const user = foundUsers[0];
+          localStorage.setItem(
+            "sendit_user",
+            JSON.stringify({
+              id: user.id,
+              name: user.name,
+              isStaff: user.isStaff,
+              email: user.email
+            }) 
+          );
+
+
+
+          // If the user is staff, redirect them to the employee home view
+          if (user.isStaff) {
+            navigate("/");
+          } else {
+            // If the user is not staff, navigate to the welcome page
+            navigate("/welcome");
+          }
+        } else {
+          window.alert("Invalid login");
+          setAnimate(false);
+        }
+      });
+    }, 1000);
+  };
 
   return (
-  <div className="login-page">
+    <div className={`login-page ${animate ? 'fade-out' : 'fade-in'}`}>
     
     <div className="auth-container">
 
@@ -51,7 +65,7 @@ export const Login = () => {
                 type="email"
                 value={email}
                 className="auth-form-input"
-                onChange={(evt) => set(evt.target.value)}
+                onChange={(evt) => setEmail(evt.target.value)}
                 placeholder="Email address"
                 required
                 autoFocus
@@ -76,7 +90,6 @@ export const Login = () => {
         <h1 className="landing-one">elevate your climbing</h1>
         <h1 className="auth-logo"><span>send</span>it</h1>
       </div>
-
 
     </div>
 
