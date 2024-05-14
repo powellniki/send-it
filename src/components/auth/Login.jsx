@@ -31,11 +31,18 @@ export const Login = () => {
             }) 
           );
 
-          // Navigate to the home page
-          navigate("/welcome");
+
+
+          // If the user is staff, redirect them to the employee home view
+          if (user.isStaff) {
+            navigate("/");
+          } else {
+            // If the user is not staff, navigate to the welcome page
+            navigate("/welcome");
+          }
         } else {
           window.alert("Invalid login");
-          setAnimate(false)
+          setAnimate(false);
         }
       });
     }, 1000);
