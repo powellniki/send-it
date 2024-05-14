@@ -32,14 +32,13 @@ export const Login = () => {
           );
 
           // Navigate to the home page
-          navigate("/");
+          navigate("/welcome");
         } else {
           window.alert("Invalid login");
           setAnimate(false)
         }
       });
-    }, 1000); // Wait for the fade-out animation to complete (2000 milliseconds)
-
+    }, 1000);
   };
 
   return (
@@ -84,7 +83,6 @@ export const Login = () => {
         <h1 className="landing-one">elevate your climbing</h1>
         <h1 className="auth-logo"><span>send</span>it</h1>
       </div>
-
 
     </div>
 

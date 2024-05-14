@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  background-image: url('https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-14_856985d9.jpeg');
+  background-image: url('https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-25_bc15ec98.jpeg');
   width: 100%;
   background-size: cover;
   background-attachment: fixed;
@@ -20,7 +20,7 @@
     height: 85%;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle, #000000 10%,#000000d0 25%, #00000010 40%, #00000000 100%);
+    background: radial-gradient(circle, #000000 10%,#000000d0 25%, #0000006d 40%, #00000000 100%);
   
 
 
@@ -136,6 +136,9 @@
 }
 
 
+
+
+
 @keyframes fadeOut {
   0% { opacity: 1;} /* Fully visible, black background */
   100% { opacity: 0;} /* Fully transparent, transparent background */
@@ -153,3 +156,4 @@
 .login-page.fade-in {
   animation: fadeIn 0.7s ease forwards;
 }
+

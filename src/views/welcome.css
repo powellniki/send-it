@@ -1,37 +1,49 @@
+.animation {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-25_bc15ec98.jpeg');
+  /* This sets allows us to transform the text on a 3D plane, and is somewhat a magic number */
+  perspective: 400px;
+  /* The rest is totally up to personal styling preferences */
+  color: #feda4a;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 500%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  text-align: center;
+  overflow: hidden;
+  animation: fadeIn 0.7s ease-in-out forwards;
+}
 
-  /* Container for the welcome page */
-  .welcome-container {
-    width: 400px; /* Adjust width as needed */
-    padding: 40px 0; /* Adjust padding as needed */
-    border-radius: 8px;
-    background-color: #ffffff; /* White background */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    position: fixed; /* Position the container */
-    top: 50%; /* Move the container 50% from the top */
-    left: 50%; /* Move the container 50% from the left */
-    transform: translate(-50%, -50%); /* Center the container */
-  }
-  
-  /* Header */
-  .welcome-container h1 {
-    margin-bottom: 20px;
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-  }
 
-  .welcome-container > div {
-    font-style: italic;
-  } 
+.crawl {
+  /* Position the element so we can adjust the top property in the animation */
+  position: relative;
+  /* Making sure the text is fully off the screen at the start and end of the animation */
+  top: 1500px;
+  /* Defines the skew origin at the very center when we apply transforms on the animation */
+  transform-origin: 50% 100%;
+  animation: crawl 65s linear;
+}
 
-  .h1-primary {
-    font-size: 20px;
+@keyframes crawl {
+  0% {
+    /* The element starts below the screen */
+    bottom: -100px;
+    /* Rotate the text 20 degrees but keep it close to the viewer */
+    transform: rotateX(50deg) translateZ(0);
   }
+  100% { 
+    /* This is a magic number, but using a big one to make sure the text is fully off the screen at the end */
+    top: -6000px;
+    /* Slightly increasing the rotation at the end and moving the text far away from the viewer */
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+}
 
-  .h1-secondary {
-    font-size: 60px;
-  }
+@keyframes fadeIn {
+  0% { opacity: 0;} /* Fully transparent, transparent background */
+  100% { opacity: 1;} /* Fully visible, black background */
+}

@@ -8,7 +8,7 @@ import './memberHome.css'
 export const MemberHome = ({currentUser}) => {
 
     const [allRoutes, setAllRoutes] = useState([])
-
+    const [loading, setLoading] = useState(true)
 
     const getAndSetAllRoutes = () => {
         getAllRoutes().then(routesArray => {
@@ -21,11 +21,16 @@ export const MemberHome = ({currentUser}) => {
     }, [])
 
 
-
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false) 
+        },10000) 
+    },[])
 
 
     return (
         <div className="container-member-home">
+
             <h2 className="heading">Gym Routes</h2>
 
             <div className="routes">
