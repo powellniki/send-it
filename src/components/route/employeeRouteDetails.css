@@ -10,6 +10,7 @@
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
+    animation: fadeIn 0.5s ease-in-out forwards;
 
     .heading {
         text-align: center;
@@ -149,3 +150,7 @@
         }
     }
 }
+@keyframes fadeIn {
+    0% { opacity: 0;} /* Fully transparent, transparent background */
+    100% { opacity: 1;} /* Fully visible, black background */
+  }

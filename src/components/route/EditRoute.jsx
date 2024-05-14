@@ -75,7 +75,7 @@ export const EditRoute = ({currentUser}) => {
             isActive: true
         }
         editRoute(editedRoute).then(() => {
-            navigate('/myroutes')
+            navigate(`/route/${routeId}`)
         })
    }
 
