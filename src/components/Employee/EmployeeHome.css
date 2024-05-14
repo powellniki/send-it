@@ -8,7 +8,7 @@
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-
+    animation: fadeIn 0.7s ease-in-out forwards;
 
     .heading {
         font-size: 100px;
@@ -28,3 +28,7 @@
         padding-top: 20px;
     }
 }
+@keyframes fadeIn {
+    0% { opacity: 0;} /* Fully transparent, transparent background */
+    100% { opacity: 1;} /* Fully visible, black background */
+  }
