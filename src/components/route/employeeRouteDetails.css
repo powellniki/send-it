@@ -62,10 +62,13 @@
                         padding-top: 10px;
 
                         .employee-route-info {
-                            font-family: 'tahoma';
+                            font-family: 'creato-light';
                             padding-bottom: 5px;
                             padding-left: 10px;
-
+                            
+                            .route-info-label {
+                                font-family: 'creato-regular';
+                            }
                         }
                         .route-description {
                             margin-top: 25px;

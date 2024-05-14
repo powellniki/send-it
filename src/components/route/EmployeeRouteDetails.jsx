@@ -48,11 +48,11 @@ export const EmployeeRouteDetails = ({currentUser}) => {
 
                         <div className="employee-route-information">
                             <div className="employee-route-info-container">
-                                <div className="employee-route-info">Grade: {route.grade?.name}</div>
-                                <div className="employee-route-info">Type: {route.type?.name}</div>
-                                <div className="employee-route-info">Style: {route.style?.name}</div>
-                                <div className="employee-route-info route-description">Description: {route.description}</div>
-                                <div className="employee-route-info route-setter">Setter: {route.user?.fullName}</div>
+                                <div className="employee-route-info"><span className="route-info-label">Grade: </span>{route.grade?.name}</div>
+                                <div className="employee-route-info"><span className="route-info-label">Type: </span>{route.type?.name}</div>
+                                <div className="employee-route-info"><span className="route-info-label">Style: </span>{route.style?.name}</div>
+                                <div className="employee-route-info route-description"><span className="route-info-label">Description: </span>{route.description}</div>
+                                <div className="employee-route-info route-setter"><span className="route-info-label">Setter: </span>{route.user?.fullName}</div>
                             </div>
                         </div>
 

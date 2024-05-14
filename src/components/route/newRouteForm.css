@@ -35,7 +35,7 @@
             padding-bottom: 20px;
             width: 80%;
             height: 90%;
-            font-family: 'tahoma';
+            font-family: 'creato-regular';
 
 
             .route-info {
@@ -52,7 +52,7 @@
                     margin-bottom: 5px;
                     border: 1px solid #ced4da; /* Light gray border */
                     border-radius: 8px;
-                    font-family: 'tahoma';
+                    font-family: 'creato-regular';
                     font-size: 14px;
                 }
 
@@ -73,7 +73,7 @@
                     margin-right: 10px;
                     border: 1px solid #ced4da; /* Light gray border */
                     border-radius: 8px;
-                    font-family: 'tahoma';
+                    font-family: 'creato-regular';
                     font-size: 14px;
                 }
             }
